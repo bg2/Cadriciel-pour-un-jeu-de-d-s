@@ -23,7 +23,7 @@ package Framework;
 public class Createur {
 
 	public De creerDe() {
-		return null;
+		return  De();
 
 	}
 

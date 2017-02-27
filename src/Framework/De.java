@@ -19,12 +19,17 @@ Historique des modifications
 *******************************************************************************/  
 package Framework;
 
+import java.util.Random;
+
 public class De implements Comparable<De>{
 
+	
+	private static final int MIN_FACE = 1; 
+	
 	//Atributs de la classe de
 	private int[] face;
-	private Object nbFace;
-	private int positionActif = 0;
+	private int nbFacesDe;
+	private int faceActuelle;
 
 	/**
 	 * Constructeur
@@ -32,13 +37,9 @@ public class De implements Comparable<De>{
 	 * @param FacesDe[] Les faces du de
 	 * 
 	 */
-	public De(int[] face) {
+	public De() {
+		faceActuelle =0; 
 		
-		this.face = face;
-		
-		this.nbFace = face.length;
-		
-		positionActif = 0;
 	}
 
 	/**
@@ -53,6 +54,29 @@ public class De implements Comparable<De>{
 		// TODO Auto-generated method stub
 		
 		return 0;
+	}
+	
+	
+	/**
+	 * Methode chargee de trouver quelle face sera choisie
+	 */
+	public void rouler(){
+		Random rnd = new Random();
+		
+		int aleatoire = 1 + rnd.nextInt(nbFacesDe - 1) ;
+		
+		faceActuelle = aleatoire;
+		
+	}
+	
+	/**
+	 * Getter de faceActuelle
+	 * 
+	 * @return faceActuelle La face du de qui est active
+	 */
+	public int getFaceActuelle() {
+		
+		return faceActuelle;
 	}
 
 }
