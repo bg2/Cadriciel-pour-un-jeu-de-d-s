@@ -41,11 +41,31 @@ public class CollectionDes {
         return new IterateurDes<De>(des);
     }
 
+    /**
+     * Ajoute un élément à la fin de la collection
+     *
+     * @param de Le nouveau dé à ajouter
+     */
     public void add(De de){
 
         De[] newDes = new De[des.length+1];
 
         for(int i = 0; i < des.length; i++)
+            newDes[i] = des[i];
+
+        newDes[newDes.length-1] = de;
+
+        des = newDes;
+    }
+
+    /**
+     * Enlève le dernier élément de la collection
+     */
+    public void remove(){
+
+        De[] newDes = new De[des.length - 1];
+
+        for(int i = 0; i < des.length - 1; i++)
             newDes[i] = des[i];
 
         newDes[newDes.length-1] = de;
