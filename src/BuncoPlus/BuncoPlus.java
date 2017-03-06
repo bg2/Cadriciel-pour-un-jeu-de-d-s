@@ -37,7 +37,7 @@ public class BuncoPlus {
     public BuncoPlus(){
         De de = new De(6);
 
-        for(int i = 0; i < 10; i++) {
+        while(de.getFace() != 6){
             de.rouler();
             System.out.println(de.getFace());
         }
