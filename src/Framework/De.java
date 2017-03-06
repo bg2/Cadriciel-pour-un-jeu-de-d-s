@@ -3,13 +3,13 @@ Cours:   LOG121
 Session: H2017
 Groupe:  02
 Projet: Laboratoire #3
-�tudiant(e)s: Vanessa Baquero
+Étudiant(e)s: Vanessa Baquero
 			  Nam Vu
 			  Alexandre Trepanier             
               
 Professeur : Francis Cardinal 
 Nom du fichier: De.java
-Date cr��: 2017-02-26
+Date créé: 2017-02-26
 Date dern. modif. 
 ********************************************************************************
 Historique des modifications
@@ -23,60 +23,62 @@ import java.util.Random;
 
 public class De implements Comparable<De>{
 
-	
-	private static final int MIN_FACE = 1; 
-	
-	//Atributs de la classe de
-	private int[] face;
-	private int nbFacesDe;
-	private int faceActuelle;
+	//Atributs de la classe De
+	private int nbFaces;
+	private int face;
 
 	/**
 	 * Constructeur
-	 * 
-	 * @param FacesDe[] Les faces du de
-	 * 
+	 *
+	 * @param nbFaces Nombre de faces du dé
 	 */
-	public De() {
-		faceActuelle =0; 
-		
+	public De(int nbFaces){
+
+		this.nbFaces = nbFaces;
 	}
 
 	/**
-	 * Methode charg�e de comparer les des
+	 * Méthode chargée de comparer les dés
 	 * 
-	 * @param De
-	 *            le de que nous desirons comparer
-	 * @return int
+	 * @param de Le dé que nous desirons comparer
+	 *
+	 * @return compare Le résultat de la comparaison (0 si les dés sont égaux, -1 si le dé actuel est plus petit que celui donné et 1 s'il est plus grand)
 	 */
+	@Override
 	public int compareTo(De de) {
+
+		int compare;
+
+		if(face == de.getFace())
+			compare = 0;
+		else if(face < de.getFace())
+			compare = -1;
+		else
+			compare = 1;
 		
-		// TODO Auto-generated method stub
-		
-		return 0;
+		return compare;
 	}
 	
 	
 	/**
-	 * Methode chargee de trouver quelle face sera choisie
+	 * Méthode chargée de trouver quelle face sera choisie
 	 */
 	public void rouler(){
+
 		Random rnd = new Random();
 		
-		int aleatoire = 1 + rnd.nextInt(nbFacesDe - 1) ;
+		int aleatoire = 1 + rnd.nextInt(nbFaces - 1) ;
 		
-		faceActuelle = aleatoire;
-		
+		face = aleatoire;
 	}
 	
 	/**
-	 * Getter de faceActuelle
+	 * Getter de face
 	 * 
-	 * @return faceActuelle La face du de qui est active
+	 * @return face La face du dé actuelle
 	 */
-	public int getFaceActuelle() {
-		
-		return faceActuelle;
+	public int getFace() {
+		return face;
 	}
 
 }

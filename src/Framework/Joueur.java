@@ -3,13 +3,13 @@ Cours:   LOG121
 Session: H2017
 Groupe:  02
 Projet: Laboratoire #3
-Étudiant(e)s: Vanessa Baquero
+Ã‰tudiant(e)s: Vanessa Baquero
 			  Nam Vu
 			  Alexandre Trepanier             
               
 Professeur : Francis Cardinal 
 Nom du fichier: Joueur.java
-Date créé: 2017-02-27
+Date crÃ©Ã©: 2017-02-27
 Date dern. modif. 
 ********************************************************************************
 Historique des modifications
@@ -19,12 +19,33 @@ Historique des modifications
 *******************************************************************************/  
 package Framework;
 
-public class Joueur implements Comparable<De> {
+public class Joueur implements Comparable<Joueur> {
 
-	@Override
-	public int compareTo(De o) {
-		// TODO Auto-generated method stub
-		return 0;
+	private String nom;
+	private int score;
+
+	public Joueur(String nom){
+
+		this.nom = nom;
+		score = 0;
 	}
 
+	@Override
+	public int compareTo(Joueur joueur) {
+
+		int compare;
+
+		if(score == joueur.getScore())
+			compare = 0;
+		else if(score < joueur.getScore())
+			compare = -1;
+		else
+			compare = 1;
+
+		return compare;
+	}
+
+	public int getScore() {
+		return score;
+	}
 }
