@@ -29,12 +29,19 @@ public class CollectionDes {
 
     /**
      * Constructeur
-     *
-     * @param nbDes Le nombres de dés maximum
      */
-    public CollectionDes(int nbDes){
+    public CollectionDes(){
 
-        des = new De[nbDes];
+        des = new De[1];
+    }
+
+    /**
+     * Constructeur avec tableau déjà créé
+     *
+     * @param des Tableau des dés à initier en collection.
+     */
+    public CollectionDes(De[] des){
+        this.des = des;
     }
 
     public IterateurDes<De> createIterateur(){
@@ -67,8 +74,6 @@ public class CollectionDes {
 
         for(int i = 0; i < des.length - 1; i++)
             newDes[i] = des[i];
-
-        newDes[newDes.length-1] = de;
 
         des = newDes;
     }

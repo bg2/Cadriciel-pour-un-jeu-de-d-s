@@ -22,6 +22,17 @@ package Framework;
 
 public class Jeu {
 
+	public void nouveauJeu(){
+		initierDes();
+		initierJoueurs();
+	}
 
+	private void initierDes(){
+
+	}
+
+	private void initierJoueurs(){
+
+	}
 
 }

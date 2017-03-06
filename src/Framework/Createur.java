@@ -3,13 +3,13 @@ Cours:   LOG121
 Session: H2017
 Groupe:  02
 Projet: Laboratoire #3
-Étudiant(e)s: Vanessa Baquero
+ï¿½tudiant(e)s: Vanessa Baquero
 			  Nam Vu
 			  Alexandre Trepanier             
               
 Professeur : Francis Cardinal 
 Nom du fichier: Createur.java
-Date créé: 2017-02-27
+Date crï¿½ï¿½: 2017-02-27
 Date dern. modif. 
 ********************************************************************************
 Historique des modifications
@@ -22,9 +22,11 @@ package Framework;
 
 public class Createur {
 
-	public De creerDe() {
-		return  De();
+	public De creerDe(int faces) {
 
+		De de = new De(faces);
+
+		return  de;
 	}
 
 	public Joueur creerJoueur() {
