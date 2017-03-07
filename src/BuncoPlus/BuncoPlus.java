@@ -21,25 +21,47 @@
 package BuncoPlus;
 
 
-import Framework.De;
+import Framework.*;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
  */
 public class BuncoPlus {
 
+    private final int MAX_DES = 3;
+    private final int NB_FACES_DES = 6;
+    private final int NB_JOUEURS = 4;
+    private Jeu jeu;
+
     public static void main(String[] args) {
 
         BuncoPlus bunco = new BuncoPlus();
-
     }
 
     public BuncoPlus(){
-        De de = new De(6);
 
-        while(de.getFace() != 6){
+        AbstractCreateurPartie createurPartie = new CreateurPartie();
+
+        jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
+
+        IterateurDes iterateur = jeu.getDes().createIterateur();
+
+        De de;
+
+        while(iterateur.hasNext()){
+
+            de = (De)iterateur.next();
             de.rouler();
             System.out.println(de.getFace());
+        }
+
+        IterateurJoueurs iterateur2 = jeu.getJoueurs().createIterateur();
+
+        Joueur joueur;
+
+        while(iterateur2.hasNext()){
+            joueur = (Joueur)iterateur2.next();
+            System.out.println(joueur.getNom());
         }
     }
 }

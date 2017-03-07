@@ -25,6 +25,13 @@ package Framework;
  */
 public interface IStrategie {
 
+    /**
+     * Méthode pour calculer le vainqueur de la partie
+     */
     void calculerLeVainqueur();
-    void calculerScore();
+
+    /**
+     * Méthode pour calculer le score du joueur actuel
+     */
+    void calculerScoreTour();
 }

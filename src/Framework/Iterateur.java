@@ -26,9 +26,18 @@ import java.util.Iterator;
  */
 public interface Iterateur extends Iterator {
 
+    /**
+     * Méthode qui retourne l'élément suivant de la collection
+     *
+     * @return L'élément suivant de la collection
+     */
     @Override
     Object next();
 
+    /**
+     * Méthode qui vérifie s'il y a un élément suivant dans la collection
+     * @return Vrai s'il y a un suivant, faux sinon.
+     */
     @Override
     boolean hasNext();
 }

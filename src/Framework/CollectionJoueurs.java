@@ -32,7 +32,7 @@ public class CollectionJoueurs {
      */
     public CollectionJoueurs(){
 
-        joueurs = new Joueur[1];
+        joueurs = new Joueur[0];
     }
 
     /**

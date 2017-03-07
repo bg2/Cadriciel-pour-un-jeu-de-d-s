@@ -22,6 +22,11 @@ package Framework;
 
 public class Createur {
 
+	public Jeu creerJeu() {
+		return null;
+
+	}
+
 	public De creerDe(int faces) {
 
 		De de = new De(faces);
@@ -30,11 +35,6 @@ public class Createur {
 	}
 
 	public Joueur creerJoueur() {
-		return null;
-
-	}
-
-	public Jeu creerJeu() {
 		return null;
 
 	}

@@ -22,17 +22,27 @@ package Framework;
 
 public class Jeu {
 
-	public void nouveauJeu(){
-		initierDes();
-		initierJoueurs();
+	private int nbTours;
+	private CollectionDes des;
+	private CollectionJoueurs joueurs;
+
+	/**
+	 * Constructeur
+	 *
+	 * @param des Collection de dés
+	 * @param joueurs Collection de joueurs
+	 */
+	public Jeu(CollectionDes des, CollectionJoueurs joueurs){
+
+		this.des = des;
+		this.joueurs = joueurs;
 	}
 
-	private void initierDes(){
-
+	public CollectionDes getDes(){
+		return des;
 	}
 
-	private void initierJoueurs(){
-
+	public CollectionJoueurs getJoueurs(){
+		return joueurs;
 	}
-
 }

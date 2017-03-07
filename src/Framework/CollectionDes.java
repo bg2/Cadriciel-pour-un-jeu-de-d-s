@@ -32,7 +32,7 @@ public class CollectionDes {
      */
     public CollectionDes(){
 
-        des = new De[1];
+        des = new De[0];
     }
 
     /**

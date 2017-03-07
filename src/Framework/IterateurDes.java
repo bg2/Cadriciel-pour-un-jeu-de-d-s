@@ -8,6 +8,11 @@ public class IterateurDes<De> implements Iterateur {
     private De[] des;
     private int position;
 
+    /**
+     * Constructeur
+     *
+     * @param des La collection de dés à itérer
+     */
     public IterateurDes(De[] des){
 
         this.des = des;
