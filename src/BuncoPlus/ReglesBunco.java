@@ -21,10 +21,11 @@ package BuncoPlus;
 
 import Framework.CollectionJoueurs;
 import Framework.IStrategie;
+import Framework.Iterateur;
 import Framework.Joueur;
 
 
-public class ReglesBunco implements IStrategie {
+public class ReglesBunco implements IStrategie{
 
 	private  static int MAX_JOUEURS = 3;
 	
@@ -35,40 +36,40 @@ public class ReglesBunco implements IStrategie {
 
 	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
 
-		//Boucle pour parcourrir la collection joueur du debut vers la fin
-		for( int i=0;  i < MAX_JOUEURS; i++){
-			
-			joueur1 = joueurs.getJoueurs(i);
-			joueur2 = joueurs.getJoueurs(i+1);
-			
-			comparaison = joueur1.compareTo(joueur2);
-			
-			//Condition lorsque les joueurs vont interchanger de place
-			if(comparaison == -1)
-				joueurs.swap(joueur1,joueur2);
-		}
-		
-		//Boucle pour parcourrir la collection joueur de la fin vers le debut
-		for( int i = MAX_JOUEURS;  i > 0; i--){
+		boolean check;
 
-			joueur1 = joueurs.getJoueurs(i);
-			joueur2 = joueurs.getJoueurs(i-1);
-			
-			comparaison = joueur1.compareTo(joueur2);
-			
-			//Condition lorsque les joueurs vont interchanger de place
-			if(comparaison == 1)
-				joueurs.swap(joueur2,joueur1);
-		}
-		
-		System.out.println("sup");
+		Joueur joueur;
+		Joueur joueur2;
+		Iterateur iterateur;
+		Iterateur iterateur2;
+
+		do{
+
+			check = true;
+			iterateur = joueurs.createIterateur();
+			iterateur2 = joueurs.createIterateur();
+
+			iterateur2.next();
+
+			do{
+
+				joueur = (Joueur)iterateur.next();
+				joueur2 = (Joueur)iterateur2.next();
+
+				if(joueur.compareTo(joueur2) == -1) {
+					joueurs.swap(joueur, joueur2);
+					check = false;
+				}
+
+			}while(iterateur2.hasNext());
+
+		}while(!check);
 
 		return joueurs;
-       
     }
 
-    @Override
-    public void calculerScoreTour() {
+	@Override
+	public void calculerScoreTour() {
 
-    }
+	}
 }

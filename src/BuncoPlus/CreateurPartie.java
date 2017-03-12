@@ -69,4 +69,18 @@ public class CreateurPartie extends AbstractCreateurPartie{
 
         return joueurs;
     }
+
+    public IStrategie initRegles(){
+
+        IStrategie regles = createur.creerRegles();
+
+        return regles;
+    }
+
+    public Jeu initJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
+
+        Jeu jeu = createur.creerJeu(des, joueurs, regles);
+
+        return jeu;
+    }
 }

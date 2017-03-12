@@ -1,82 +1,56 @@
-/*******************************************************************************
-Cours:   LOG121
-Session: H2017
-Groupe:  02
-Projet: Laboratoire #3
-Étudiant(e)s:  Vanessa Baquero
-               Nam Vu
-               Alexandre Trepanier
-
-Professeur : Francis Cardinal
-Nom du fichier: BuncoPlus.java
-Date créé: 2017-03-06
-Date dern. modif.
-********************************************************************************
-Historique des modifications
-********************************************************************************
-2017-03-06 Version initiale (Alexandre Trépanier)
-
-*******************************************************************************/
-
 package BuncoPlus;
-
 
 import Framework.*;
 
-
-public class BuncoPlus {
-
-	//Constantes qui seront utilisées dans la classe BuncoPlus
-    private final int MAX_DES = 3;
-    private final int NB_FACES_DES = 6;
-    private final int NB_JOUEURS = 4;
-    
-	private Jeu jeu;
-	private ReglesBunco regles; 
-
-    /**
-     * Main qui fera commencer le jeu BuncoPlus.
-     * 
-     * @param args
-     */
-    public static void main(String[] args) {
-
-        BuncoPlus bunco = new BuncoPlus();
-    }
+/**
+ * Created by Alexandre on 2017-03-12.
+ */
+public class BuncoPlus extends Jeu{
 
     /**
      * Constructeur de la classe BuncoPlus.
      */
-	public BuncoPlus() {
+    public BuncoPlus(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
-		AbstractCreateurPartie createurPartie = new CreateurPartie();
+        super(des, joueurs, regles);
 
-		jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
+        test();
+    }
 
-		IterateurDes iterateur = jeu.getDes().createIterateur();
+    public void test(){
 
-		De de;
+        Iterateur iterateur = des.createIterateur();
 
-		while (iterateur.hasNext()) {
+        De de;
 
-			de = (De) iterateur.next();
-			de.rouler();
-			System.out.println(de.getFace());
-		}
+        while (iterateur.hasNext()) {
 
-		IterateurJoueurs iterateur2 = jeu.getJoueurs().createIterateur();
+            de = (De) iterateur.next();
+            de.rouler();
+            System.out.println(de.getFace());
+        }
 
-		Joueur joueur;
+        Iterateur iterateur2 = joueurs.createIterateur();
 
-		while (iterateur2.hasNext()) {
-			joueur = (Joueur) iterateur2.next();
-			System.out.println(joueur.getNom());
-		}
+        Joueur joueur;
 
-		CollectionJoueurs joueurs;
+        int score = 0;
+        while (iterateur2.hasNext()) {
+            joueur = (Joueur) iterateur2.next();
+            joueur.setScore(score++);
+            System.out.println(joueur.getNom());
+        }
 
-		// joueurs = regles.calculerLeVainqueur(jeu.getJoueurs());
+        calculerLeVainqueur();
 
-	}
+        System.out.println();
 
+        iterateur2 = joueurs.createIterateur();
+
+        while (iterateur2.hasNext()) {
+            joueur = (Joueur) iterateur2.next();
+            System.out.println(joueur.getNom() + " : " + joueur.getScore());
+        }
+
+    }
 }

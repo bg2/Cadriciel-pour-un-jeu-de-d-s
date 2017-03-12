@@ -18,17 +18,19 @@ Historique des modifications
 
 *******************************************************************************/  
 
-package Framework;
+package BuncoPlus;
+
+import Framework.*;
 
 public class Createur {
 
 	/**
 	 * Constucteur du jeu.
-	 * @return null
+	 * @return Jeu
 	 */
-	public Jeu creerJeu(CollectionDes des, CollectionJoueurs joueurs) {
+	public Jeu creerJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
-		Jeu jeu = new Jeu(des, joueurs);
+		Jeu jeu = new BuncoPlus(des, joueurs, regles);
 
 		return jeu;
 	}
@@ -50,5 +52,12 @@ public class Createur {
 		Joueur joueur = new Joueur(nom);
 
 		return joueur;
+	}
+
+	public IStrategie creerRegles(){
+
+		IStrategie regles = new ReglesBunco();
+
+		return regles;
 	}
 }

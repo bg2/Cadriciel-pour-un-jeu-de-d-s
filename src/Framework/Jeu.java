@@ -20,12 +20,13 @@ Historique des modifications
 
 package Framework;
 
-public class Jeu {
+public class Jeu{
 
-	//Attributs qui seront utilisés dans la classe 
-	private int nbTours;
-	private CollectionDes des;
-	private CollectionJoueurs joueurs;
+	//Attributs qui seront utilisï¿½s dans la classe 
+	protected int nbTours;
+	protected IStrategie regles;
+	protected CollectionDes des;
+	protected CollectionJoueurs joueurs;
 
 	/**
 	 * Constructeur
@@ -33,10 +34,11 @@ public class Jeu {
 	 * @param des Collection de dÃ©s
 	 * @param joueurs Collection de joueurs
 	 */
-	public Jeu(CollectionDes des, CollectionJoueurs joueurs){
+	public Jeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles){
 
 		this.des = des;
 		this.joueurs = joueurs;
+		this.regles = regles;
 	}
 
 	/**
@@ -54,5 +56,12 @@ public class Jeu {
 	public CollectionJoueurs getJoueurs(){
 		return joueurs;
 	}
-	
+
+	public void calculerLeVainqueur() {
+		joueurs = regles.calculerLeVainqueur(joueurs);
+	}
+
+	public void calculerScoreTour() {
+		regles.calculerScoreTour();
+	}
 }

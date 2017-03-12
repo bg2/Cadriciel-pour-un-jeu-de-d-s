@@ -19,7 +19,7 @@ Historique des modifications
 *******************************************************************************/  
 package Framework;
 
-import BuncoPlus.CreateurPartie;
+import BuncoPlus.Createur;
 
 /**
  * Created by Alexandre on 2017-03-06.
@@ -40,7 +40,8 @@ abstract public class AbstractCreateurPartie {
 
         CollectionDes des = initDes(nbDes, nbFaces);
         CollectionJoueurs joueurs = initJoueurs(nbJoueurs);
-        Jeu jeu = initierJeu(des, joueurs);
+        IStrategie regles = initRegles();
+        Jeu jeu = initJeu(des, joueurs, regles);
 
         return jeu;
     }
@@ -62,6 +63,8 @@ abstract public class AbstractCreateurPartie {
      */
     abstract public CollectionJoueurs initJoueurs(int nbJoueurs);
 
+    abstract public IStrategie initRegles();
+
     /**
      * Méthode qui créé le jeu avec les CollectionDes et CollectionJoueurs
      *
@@ -69,10 +72,5 @@ abstract public class AbstractCreateurPartie {
      * @param joueurs La collection de joueurs du jeu
      * @return Le jeu de la partie
      */
-    public Jeu initierJeu(CollectionDes des, CollectionJoueurs joueurs){
-
-        Jeu jeu = createur.creerJeu(des, joueurs);
-
-        return jeu;
-    }
+    abstract public Jeu initJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles);
 }

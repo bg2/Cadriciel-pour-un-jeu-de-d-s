@@ -91,5 +91,4 @@ public class Joueur implements Comparable<Joueur> {
 	public int getScore() {
 		return score;
 	}
-
 }
