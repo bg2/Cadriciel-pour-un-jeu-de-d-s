@@ -50,4 +50,8 @@ public class Application {
 
         bunco = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
     }
+    
+    public Jeu getJeu(){
+    	return bunco;
+    }
 }

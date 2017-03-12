@@ -40,6 +40,14 @@ public class Jeu{
 		this.joueurs = joueurs;
 		this.regles = regles;
 	}
+	
+	public void setDes(CollectionDes des){
+		this.des = des;
+	}
+	
+	public void setJoueurs(CollectionJoueurs joueurs){
+		this.joueurs = joueurs;
+	}
 
 	/**
 	 * Accesseur de la collection De.
