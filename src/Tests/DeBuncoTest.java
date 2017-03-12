@@ -28,64 +28,64 @@ import org.junit.Test;
 import Framework.De;
 
 public class DeBuncoTest {
-	
-	//Constante du nombre de face de chaque de 
+
+	// Constante du nombre de face de chaque de
 	private final static int NB_FACES = 6;
-	
-	//Les deux des qui seront utilisés pour les Tests. 
+
+	// Les deux des qui seront utilisés pour les Tests.
 	private De de1;
 	private De de2;
-	
+	private int face1 = 5;
+	private int face2 = 6;
 
-	
 	/**
-	 * Methode qui va creer deux des pour les tests de la classe. 
+	 * Methode qui va creer deux des pour les tests de la classe.
 	 */
 	@Before
 	public void initialiser() {
-		de1 = new De(6);
-		de2 = new De(6);
+		de1 = new De(NB_FACES);
+		de2 = new De(NB_FACES);
 	}
-	
+
 	/**
-	 * Cette methode va creer un nouveau de et va le comparer a un 
-	 * prealablement cree pour Tester la creation. 
+	 * Cette methode va creer un nouveau de et va le comparer a un prealablement
+	 * cree pour Tester la creation.
 	 */
 	@Test
 	public void constructeurTest() {
-		
+
 		De de = new De(NB_FACES);
 		assertTrue(de.getFace() == de1.getFace());
-		
+
 	}
-	
+
 	/**
-	 * Cette methode test que les deux des soient differents. 
+	 * Cette methode test que les deux des soient differents.
 	 */
 	@Test
 	public void deSuperieurTest() {
-		de1.setFace(6);
-		de2.setFace(5);
+		de1.setFace(face1);
+		de2.setFace(face2);
 		assertTrue(de1.getFace() > de2.getFace());
 	}
 
 	/**
-	 * Cette methode test que les deux des soient differents. 
+	 * Cette methode test que les deux des soient differents.
 	 */
 	@Test
 	public void deInferieurTest() {
-		de1.setFace(6);
-		de2.setFace(5);
+		de1.setFace(face1);
+		de2.setFace(face2);
 		assertTrue(de1.getFace() < de2.getFace());
 	}
 
 	/**
-	 * Cette methode test que les deux des soient egaux. 
+	 * Cette methode test que les deux des soient egaux.
 	 */
 	@Test
 	public void deEquivalentTest() {
-		de1.setFace(4);
-		de2.setFace(4);
+		de1.setFace(face1);
+		de2.setFace(face2);
 		assertTrue(de1.getFace() == de2.getFace());
 	}
 }
