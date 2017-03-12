@@ -15,7 +15,7 @@
  Historique des modifications
  ********************************************************************************
  2017-03-06 Version initiale (Alexandre Trépanier)
-
+2017-03-11 Ajout de methodes (vanessa)
  *******************************************************************************/
 package Framework;
 
@@ -78,6 +78,10 @@ public class CollectionDes {
         des = newDes;
     }
 
+    /**
+     * Accesseur de la collectionDe. 
+     * @return des Collection de des
+     */
     public De[] getDes(){
         return des;
     }

@@ -22,6 +22,7 @@ package Framework;
 
 public class Jeu {
 
+	//Attributs qui seront utilisés dans la classe 
 	private int nbTours;
 	private CollectionDes des;
 	private CollectionJoueurs joueurs;
@@ -38,11 +39,20 @@ public class Jeu {
 		this.joueurs = joueurs;
 	}
 
+	/**
+	 * Accesseur de la collection De.
+	 * @return des La collectionDes que nous voulons acceder 
+	 */
 	public CollectionDes getDes(){
 		return des;
 	}
 
+	/**
+	 * Accesseur de la collection Joueur.
+	 * @return joueurs La collectionJoueurs que nous voulons acceder 
+	 */
 	public CollectionJoueurs getJoueurs(){
 		return joueurs;
 	}
+	
 }
