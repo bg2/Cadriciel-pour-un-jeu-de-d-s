@@ -69,7 +69,7 @@ public class Joueur implements Comparable<Joueur> {
 	}
 
 	public void incrementerScore(int valeur) {
-		score = score + valeur;
+		this.score = this.score + valeur;
 	}
 
 	public int getScore() {
