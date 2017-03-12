@@ -1,36 +1,37 @@
 /*******************************************************************************
- Cours:   LOG121
- Session: H2017
- Groupe:  02
- Projet: Laboratoire #3
- Étudiant(e)s:  Vanessa Baquero
-                Nam Vu
-                Alexandre Trepanier
+Cours:   LOG121
+Session: H2017
+Groupe:  02
+Projet: Laboratoire #3
+Étudiant(e)s:  Vanessa Baquero
+               Nam Vu
+               Alexandre Trepanier
 
- Professeur : Francis Cardinal
- Nom du fichier: BuncoPlus.java
- Date créé: 2017-03-06
- Date dern. modif.
- ********************************************************************************
- Historique des modifications
- ********************************************************************************
- 2017-03-06 Version initiale (Alexandre Trépanier)
+Professeur : Francis Cardinal
+Nom du fichier: BuncoPlus.java
+Date créé: 2017-03-06
+Date dern. modif.
+********************************************************************************
+Historique des modifications
+********************************************************************************
+2017-03-06 Version initiale (Alexandre Trépanier)
 
- *******************************************************************************/
+*******************************************************************************/
 
 package BuncoPlus;
 
 
 import Framework.*;
 
-/**
- * Created by Alexandre Trépanier on 2017-03-06.
- */
+
 public class BuncoPlus {
 
+	//Constates qui seront utilis�es dans la classe BuncoPlus
     private final int MAX_DES = 3;
     private final int NB_FACES_DES = 6;
     private final int NB_JOUEURS = 4;
+    
+ 
     private Jeu jeu;
 
     public static void main(String[] args) {
