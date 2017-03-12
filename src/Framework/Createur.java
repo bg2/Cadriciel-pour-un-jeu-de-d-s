@@ -34,8 +34,10 @@ public class Createur {
 		return  de;
 	}
 
-	public Joueur creerJoueur() {
-		return null;
+	public Joueur creerJoueur(String nom) {
 
+		Joueur joueur = new Joueur(nom);
+
+		return joueur;
 	}
 }

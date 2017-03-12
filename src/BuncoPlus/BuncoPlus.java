@@ -26,7 +26,7 @@ import Framework.*;
 
 public class BuncoPlus {
 
-	//Constates qui seront utilisées dans la classe BuncoPlus
+	//Constantes qui seront utilisÃ©es dans la classe BuncoPlus
     private final int MAX_DES = 3;
     private final int NB_FACES_DES = 6;
     private final int NB_JOUEURS = 4;
