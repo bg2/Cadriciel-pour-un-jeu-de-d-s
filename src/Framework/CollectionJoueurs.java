@@ -88,19 +88,13 @@ public class CollectionJoueurs {
      */
     public void swap(Joueur joueur1, Joueur joueur2 ){
 
-    	Joueur[] ordreJoueurs = new Joueur[joueurs.length];
-       
     	for(int i = 0; i < joueurs.length; i++) {
 
     	    if(joueurs[i] == joueur1)
-    	        ordreJoueurs[i] = joueur2;
+    	        joueurs[i] = joueur2;
     	    else if(joueurs[i] == joueur2)
-                ordreJoueurs[i] = joueur1;
-    	    else
-    	        ordreJoueurs[i] = joueurs[i];
+                joueurs[i] = joueur1;
         }
-
-        joueurs = ordreJoueurs;
     }
   
     /**
