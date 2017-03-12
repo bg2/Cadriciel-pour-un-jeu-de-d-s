@@ -23,23 +23,26 @@ import Framework.CollectionJoueurs;
 import Framework.IStrategie;
 import Framework.Joueur;
 
+
 public class ReglesBunco implements IStrategie {
 
-	//Variables de la classe ReglesBunco
+	private  static int MAX_JOUEURS =3; 
 	
-	private  int maxJoueurs; 
+	//Variables de la classe ReglesBunco
 	private Joueur joueur1 ; 
 	private Joueur joueur2 ;
 	private  int comparaison; 
 	
-	public static CollectionJoueurs calculerLeVainqueur() {
+	private BuncoPlus buncoPlus; 
+	private CollectionJoueurs collectionJoueurs; 
+	
+	public  CollectionJoueurs calculerLeVainqueur(Joueur joueur) {
+	
 		
-		maxJoueurs = 3; 
-		
-		for( int i=0;  i < maxJoueurs; i++){
+		for( int i=0;  i < MAX_JOUEURS; i++){
 			
-			joueur1 = CollectionJoueurs.getJoueurs(i); 
-			joueur2 = CollectionJoueurs.getJoueurs(i+1);
+			joueur1 = collectionJoueurs.getJoueurs(i); 
+			joueur2 = collectionJoueurs.getJoueurs(i+1);
 			
 			comparaison = joueur1.compareTo(joueur2);
 			
@@ -51,9 +54,9 @@ public class ReglesBunco implements IStrategie {
 		
 		
 		
-		
+		System.out.println("sup");
 		return null; 
-        System.out.println("sup");
+       
     }
 
     @Override

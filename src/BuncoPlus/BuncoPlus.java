@@ -32,6 +32,7 @@ public class BuncoPlus {
     private final int NB_JOUEURS = 4;
     
 	private Jeu jeu;
+	private ReglesBunco regles; 
 
     /**
      * Main qui fera commencer le jeu BuncoPlus.
@@ -74,9 +75,11 @@ public class BuncoPlus {
         
     }
     
-    private CollectionJoueurs calculerLeVainqueur() {
+    private CollectionJoueurs calculerLeVainqueur(Joueur joueur) {
     	
-    	return ReglesBunco.calculerLeVainqueur();
+    	 regles.calculerLeVainqueur(joueur);
+    	 
+    	 return null;
     	
     }
 
