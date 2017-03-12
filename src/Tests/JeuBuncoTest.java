@@ -17,7 +17,11 @@ public class JeuBuncoTest {
 	private De de2;
 	private De de3;
 	private Joueur joueur1;
-	private String nomJoueur = "Joueur1";
+	private Joueur joueur2;
+	private String nomJoueur1 = "Joueur1";
+	private String nomJoueur2 = "Joueur2";
+	private int scoreJoueur1 = 21;
+	private int scoreJoueur2 = 5;
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
 	private Application bunco;
@@ -30,11 +34,12 @@ public class JeuBuncoTest {
 		de1 = new De(NB_FACES_DES);
 		de2 = new De(NB_FACES_DES);
 		de3 = new De(NB_FACES_DES);
-		joueur1 = new Joueur(nomJoueur);
+		joueur1 = new Joueur(nomJoueur1);
+		joueur2 = new Joueur(nomJoueur2);
 	}
 
 	@Test
-	public void getDes() {
+	public void getDesTest() {
 		de1.setFace(5);
 		de2.setFace(1);
 		de3.setFace(6);
@@ -46,9 +51,18 @@ public class JeuBuncoTest {
 	}
 
 	@Test
-	public void getJoueurs() {
+	public void getJoueursTest() {
 		collectionJoueurs.add(joueur1);
 		bunco.getJeu().setJoueurs(collectionJoueurs);
 		assertTrue(bunco.getJeu().getJoueurs().equals(collectionJoueurs));
+	}
+
+	@Test
+	public void calculerLeVainqueurTest() {
+		joueur1.setScore(scoreJoueur1);
+		joueur2.setScore(scoreJoueur2);
+		collectionJoueurs.add(joueur1);
+		collectionJoueurs.add(joueur2);
+
 	}
 }
