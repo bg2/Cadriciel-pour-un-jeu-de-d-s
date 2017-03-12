@@ -74,8 +74,8 @@ public class DeBuncoTest {
 	 */
 	@Test
 	public void deInferieurTest() {
-		de1.setFace(1);
-		de2.setFace(4);
+		de1.setFace(6);
+		de2.setFace(5);
 		assertTrue(de1.getFace() < de2.getFace());
 	}
 
