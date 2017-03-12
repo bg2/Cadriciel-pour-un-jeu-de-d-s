@@ -8,8 +8,11 @@ import org.junit.Test;
 import Framework.De;
 
 public class DeBuncoTest {
+	
+	private final static int NB_FACES = 6;
 	private De de1;
 	private De de2;
+	
 
 	@Before
 	public void initialiser() {
@@ -17,6 +20,13 @@ public class DeBuncoTest {
 		de2 = new De(6);
 	}
 
+	@Test
+	public void ConstructeurTest() {
+		
+		De de = new De(NB_FACES);
+		assertTrue(de.getFace() == de1.getFace());
+		
+	}
 	@Test
 	public void deSuperieurTest() {
 		de1.setFace(6);
