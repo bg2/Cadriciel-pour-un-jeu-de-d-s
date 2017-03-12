@@ -22,11 +22,20 @@ package Framework;
 
 public class Createur {
 
+	/**
+	 * Constucteur du jeu.
+	 * @return null
+	 */
 	public Jeu creerJeu() {
 		return null;
 
 	}
 
+	/**
+	 * Createur d'un de selon le nombre de face voulu.
+	 * @param faces Le nombre de faces du de
+	 * @return de Le de qui a ete cree
+	 */
 	public De creerDe(int faces) {
 
 		De de = new De(faces);

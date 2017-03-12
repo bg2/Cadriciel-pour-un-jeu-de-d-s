@@ -45,6 +45,7 @@ public class CollectionJoueurs {
         this.joueurs = joueurs;
     }
 
+    
     public IterateurJoueurs<Joueur> createIterateur(){
         return new IterateurJoueurs<Joueur>(joueurs);
     }
@@ -86,32 +87,33 @@ public class CollectionJoueurs {
      * @param joueur2 Le  joueur 2 a changer de place
      *
      */
-    public CollectionJoueurs swap(Joueur joueur1,Joueur joueur2 ){
+    public Joueur[] swap(Joueur joueur1,Joueur joueur2 ){
 
-        Joueur nouedJoueurs = new Joueur("noeud");
+    	Joueur[] ordreJoueurs = new Joueur[joueurs.length+1];
+    	Joueur temporaireJoueur = new Joueur("temporaire");
        
-
-        for(int i = 0; i < joueurs.length; i++){
-        	nouedJoueurs = joueur1;
-        	joueur1 = joueur2;
-        	joueur2=nouedJoueurs;
-            
-        }
-        	
+    	for(int i = 0; i < joueurs.length; i++)
+    		ordreJoueurs[i] = joueurs[i];
         
-        return null; 
+    	ordreJoueurs[ordreJoueurs.length-1] = temporaireJoueur;
+             	
+    	temporaireJoueur = joueur1;
+    	joueur1 = joueur2;
+    	joueur2=temporaireJoueur;
+        joueurs = ordreJoueurs;   
+        
+        return ordreJoueurs; 
     }
-    public Joueur[] getDes(){
-        return joueurs;
-    }
-    
+  
     /**
      * Acceseur du joueur a la position desiree de la collection 
      * @param position int qui indique la position dans la collection 
      * @return Joueurs
      */
     public  Joueur getJoueurs(int position) {
+    	
 		return joueurs[position];
+		
 	}
 
 
