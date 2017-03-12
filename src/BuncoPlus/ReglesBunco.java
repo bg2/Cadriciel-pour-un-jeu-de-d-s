@@ -20,6 +20,7 @@ Historique des modifications
 package BuncoPlus;
 
 import Framework.CollectionJoueurs;
+import Framework.De;
 import Framework.IStrategie;
 import Framework.Iterateur;
 import Framework.Joueur;
@@ -33,6 +34,7 @@ public class ReglesBunco implements IStrategie{
 	private Joueur joueur1 ; 
 	private Joueur joueur2 ;
 	private  int comparaison; 
+	private De[] des;
 
 	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
 
@@ -68,8 +70,44 @@ public class ReglesBunco implements IStrategie{
 		return joueurs;
     }
 
-	@Override
-	public void calculerScoreTour() {
+    @Override
+    public void calculerScoreTour(int tour) {
+    	int score=0;
+    	boolean changer = true;
 
-	}
+
+		IterateurDes<De>  iterateurDe = new IterateurDes<De>(des);
+
+		while(iterateurDe.hasNext()){
+			De de = (De)iterateurDe.next();
+			de.rouler();
+			if(de.getFace()==tour){
+				score=score+1;
+			}
+		}
+
+			if(score==3){
+				score=21;
+			}
+			else if(score==0){
+				iterateurDe = new IterateurDes<De>(des);
+
+				De de1 = (De)iterateurDe.next();
+				De de2 = (De)iterateurDe.next();
+				De de3 = (De)iterateurDe.next();
+				if((de1.compareTo(de2)==0)&&(de2.compareTo(de3)==0)){
+					score=5;
+				}
+			}
+
+			joueur1.incrementerScore(score);
+
+			if(score==21 || score==0){
+				changer = false;
+			}
+
+			changer= true;
+
+    }
+
 }
