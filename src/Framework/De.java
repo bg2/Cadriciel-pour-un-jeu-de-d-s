@@ -69,7 +69,11 @@ public class De implements Comparable<De>{
 		
 		int aleatoire = 1 + rnd.nextInt(nbFaces) ;
 		
-		face = aleatoire;
+		setFace(aleatoire);
+	}
+	
+	public void setFace(int valeur){
+		face = valeur;
 	}
 	
 	/**
