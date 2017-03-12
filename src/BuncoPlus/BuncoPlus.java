@@ -31,14 +31,21 @@ public class BuncoPlus {
     private final int NB_FACES_DES = 6;
     private final int NB_JOUEURS = 4;
     
- 
-    private Jeu jeu;
+	private Jeu jeu;
 
+    /**
+     * Main qui fera commencer le jeu BuncoPlus.
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
 
         BuncoPlus bunco = new BuncoPlus();
     }
 
+    /**
+     * Constructeur de la classe BuncoPlus.
+     */
     public BuncoPlus(){
 
         AbstractCreateurPartie createurPartie = new CreateurPartie();
@@ -64,5 +71,14 @@ public class BuncoPlus {
             joueur = (Joueur)iterateur2.next();
             System.out.println(joueur.getNom());
         }
+        
     }
+    
+    private CollectionJoueurs calculerLeVainqueur() {
+    	
+    	return ReglesBunco.calculerLeVainqueur();
+    	
+    }
+
+
 }

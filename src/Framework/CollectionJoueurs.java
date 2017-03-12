@@ -35,7 +35,8 @@ public class CollectionJoueurs {
         joueurs = new Joueur[0];
     }
 
-    /**
+
+	/**
      * Constructeur avec tableau déjà créé
      *
      * @param joueurs Tableaux de joueurs à initier en collection
@@ -81,4 +82,15 @@ public class CollectionJoueurs {
     public Joueur[] getDes(){
         return joueurs;
     }
+    
+    /**
+     * Acceseur du joueur a la position desiree de la collection 
+     * @param position int qui indique la position dans la collection 
+     * @return Joueurs
+     */
+    public  Joueur getJoueurs(int position) {
+		return joueurs[position];
+	}
+
+
 }

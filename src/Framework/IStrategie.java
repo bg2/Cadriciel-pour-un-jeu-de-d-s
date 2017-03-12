@@ -27,8 +27,9 @@ public interface IStrategie {
 
     /**
      * Méthode pour calculer le vainqueur de la partie
+     * @return 
      */
-    void calculerLeVainqueur();
+    CollectionJoueurs calculerLeVainqueur();
 
     /**
      * Méthode pour calculer le score du joueur actuel
