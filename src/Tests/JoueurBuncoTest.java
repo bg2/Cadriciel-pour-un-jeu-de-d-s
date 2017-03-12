@@ -54,9 +54,8 @@ public class JoueurBuncoTest {
 	 */
 	@Test
 	public void comparerScoreSuperieurTest() {
-		System.out.println("joueur1 : " + joueur1.getScore());
-		System.out.println("joueur2 : " + joueur2.getScore());
-		System.out.println(joueur1.compareTo(joueur2));
+		joueur1.incrementerScore(scoreJoueur1);
+		joueur2.incrementerScore(scoreJoueur2);
 		assertTrue(joueur1.compareTo(joueur2) == 1);
 	}
 
@@ -66,6 +65,8 @@ public class JoueurBuncoTest {
 	 */
 	@Test
 	public void comparerScoreInferieurTest() {
+		joueur1.incrementerScore(scoreJoueur1);
+		joueur2.incrementerScore(scoreJoueur2);
 		assertTrue(joueur1.compareTo(joueur2) == -1);
 	}
 
@@ -74,6 +75,8 @@ public class JoueurBuncoTest {
 	 */
 	@Test
 	public void comparerScoreEquivalentTest() {
+		joueur1.incrementerScore(scoreJoueur1);
+		joueur2.incrementerScore(scoreJoueur2);
 		assertTrue(joueur1.compareTo(joueur2) == 0);
 	}
 
