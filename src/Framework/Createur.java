@@ -26,9 +26,11 @@ public class Createur {
 	 * Constucteur du jeu.
 	 * @return null
 	 */
-	public Jeu creerJeu() {
-		return null;
+	public Jeu creerJeu(CollectionDes des, CollectionJoueurs joueurs) {
 
+		Jeu jeu = new Jeu(des, joueurs);
+
+		return jeu;
 	}
 
 	/**

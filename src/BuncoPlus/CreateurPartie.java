@@ -25,8 +25,6 @@ import Framework.*;
 
 public class CreateurPartie extends AbstractCreateurPartie{
 
-    private Createur createur = new Createur();
-
     /**
      * Methode qui intialise les des de la partie grace a une 
      * boucle qui parcourt la collection de des. 
@@ -59,10 +57,12 @@ public class CreateurPartie extends AbstractCreateurPartie{
     public CollectionJoueurs initJoueurs(int nbJoueurs) {
 
         CollectionJoueurs joueurs = new CollectionJoueurs();
-
-        String nom = "Hello";
+        String nom;
 
         for(int i = 0; i < nbJoueurs; i++) {
+
+            nom = "joueur " + (i+1);
+
             Joueur joueur = createur.creerJoueur(nom);
             joueurs.add(joueur);
         }

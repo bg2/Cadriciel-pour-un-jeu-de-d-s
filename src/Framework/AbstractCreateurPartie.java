@@ -3,13 +3,13 @@ Cours:   LOG121
 Session: H2017
 Groupe:  02
 Projet: Laboratoire #3
-Étudiant(e)s: Vanessa Baquero
+ï¿½tudiant(e)s: Vanessa Baquero
 			  Nam Vu
 			  Alexandre Trepanier             
               
 Professeur : Francis Cardinal 
 Nom du fichier: (Framework) package-info.java
-Date créé: 2017-03-06
+Date crï¿½ï¿½: 2017-03-06
 Date dern. modif. 2017-03-06
 ********************************************************************************
 Historique des modifications
@@ -19,10 +19,14 @@ Historique des modifications
 *******************************************************************************/  
 package Framework;
 
+import BuncoPlus.CreateurPartie;
+
 /**
  * Created by Alexandre on 2017-03-06.
  */
 abstract public class AbstractCreateurPartie {
+
+    protected Createur createur = new Createur();
 
     /**
      * MÃ©thode template de crÃ©ation de partie
@@ -67,7 +71,7 @@ abstract public class AbstractCreateurPartie {
      */
     public Jeu initierJeu(CollectionDes des, CollectionJoueurs joueurs){
 
-        Jeu jeu = new Jeu(des, joueurs);
+        Jeu jeu = createur.creerJeu(des, joueurs);
 
         return jeu;
     }
