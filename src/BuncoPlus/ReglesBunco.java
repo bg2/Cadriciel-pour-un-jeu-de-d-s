@@ -33,7 +33,7 @@ public class ReglesBunco implements IStrategie {
 	private Joueur joueur2 ;
 	private  int comparaison; 
 	
-	private BuncoPlus buncoPlus; 
+	
 	private CollectionJoueurs collectionJoueurs; 
 	
 	public  CollectionJoueurs calculerLeVainqueur(Joueur joueur) {
@@ -48,14 +48,29 @@ public class ReglesBunco implements IStrategie {
 			
 			if(comparaison == -1){
 				
+				collectionJoueurs.swap(joueur1,joueur2);
+				
 			}
 			
 		}
 		
-		
+		for( int j = MAX_JOUEURS;  j > 0; j--){
+					
+			joueur1 = collectionJoueurs.getJoueurs(j); 
+			joueur2 = collectionJoueurs.getJoueurs(j-1);
+			
+			comparaison = joueur1.compareTo(joueur2);
+			
+			if(comparaison == 1){
+				
+				collectionJoueurs.swap(joueur2,joueur1);
+				
+			}
+			
+		}
 		
 		System.out.println("sup");
-		return null; 
+		return collectionJoueurs; 
        
     }
 

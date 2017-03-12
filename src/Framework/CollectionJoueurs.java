@@ -79,6 +79,28 @@ public class CollectionJoueurs {
         joueurs = newJoueurs;
     }
 
+    /**
+     * Interchange de place deux joueurs de la collection
+     *
+     * @param joueur1 Le  joueur 1 a changer de place
+     * @param joueur2 Le  joueur 2 a changer de place
+     *
+     */
+    public CollectionJoueurs swap(Joueur joueur1,Joueur joueur2 ){
+
+        Joueur nouedJoueurs = new Joueur("noeud");
+       
+
+        for(int i = 0; i < joueurs.length; i++){
+        	nouedJoueurs = joueur1;
+        	joueur1 = joueur2;
+        	joueur2=nouedJoueurs;
+            
+        }
+        	
+        
+        return null; 
+    }
     public Joueur[] getDes(){
         return joueurs;
     }
