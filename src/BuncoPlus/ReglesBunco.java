@@ -26,16 +26,13 @@ import Framework.Joueur;
 
 public class ReglesBunco implements IStrategie {
 
-	private  static int MAX_JOUEURS =3; 
+	private  static int MAX_JOUEURS = 3;
 	
 	//Variables de la classe ReglesBunco
 	private Joueur joueur1 ; 
 	private Joueur joueur2 ;
 	private  int comparaison; 
-	
-	
-	private CollectionJoueurs collectionJoueurs; 
-	
+
 	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
 
 		//Boucle pour parcourrir la collection joueur du debut vers la fin
