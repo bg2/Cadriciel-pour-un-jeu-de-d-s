@@ -19,11 +19,7 @@ Historique des modifications
 *******************************************************************************/
 package BuncoPlus;
 
-import Framework.CollectionJoueurs;
-import Framework.De;
-import Framework.IStrategie;
-import Framework.Iterateur;
-import Framework.Joueur;
+import Framework.*;
 
 
 public class ReglesBunco implements IStrategie{
@@ -76,7 +72,7 @@ public class ReglesBunco implements IStrategie{
     	boolean changer = true;
 
 
-		IterateurDes<De>  iterateurDe = new IterateurDes<De>(des);
+		Iterateur  iterateurDe = new IterateurDes(des);
 
 		while(iterateurDe.hasNext()){
 			De de = (De)iterateurDe.next();
@@ -90,7 +86,7 @@ public class ReglesBunco implements IStrategie{
 				score=21;
 			}
 			else if(score==0){
-				iterateurDe = new IterateurDes<De>(des);
+				iterateurDe = new IterateurDes(des);
 
 				De de1 = (De)iterateurDe.next();
 				De de2 = (De)iterateurDe.next();

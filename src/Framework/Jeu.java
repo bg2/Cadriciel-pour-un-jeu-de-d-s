@@ -62,6 +62,6 @@ public class Jeu{
 	}
 
 	public void calculerScoreTour() {
-		regles.calculerScoreTour();
+		regles.calculerScoreTour(nbTours);
 	}
 }
