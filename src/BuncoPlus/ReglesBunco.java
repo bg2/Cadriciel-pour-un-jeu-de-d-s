@@ -10,12 +10,12 @@ Projet: Laboratoire #3
 Professeur : Francis Cardinal 
 Nom du fichier: (BuncoPlus) package-info.java
 Date créé: 2017-03-06
-Date dern. modif. 2017-03-06
+Date dern. modif. 2017-03-11
 ********************************************************************************
 Historique des modifications
 ********************************************************************************
 2017-03-06 Version initiale (Alexandre)
-
+2017-03-11 CalculVainqueur (vanessa)
 *******************************************************************************/
 package BuncoPlus;
 
@@ -36,9 +36,9 @@ public class ReglesBunco implements IStrategie {
 	
 	private CollectionJoueurs collectionJoueurs; 
 	
-	public  CollectionJoueurs calculerLeVainqueur(Joueur joueur) {
+	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
 	
-		
+		//Boucle pour parcourrir la collection joueur du debut vers la fin 
 		for( int i=0;  i < MAX_JOUEURS; i++){
 			
 			joueur1 = collectionJoueurs.getJoueurs(i); 
@@ -46,6 +46,7 @@ public class ReglesBunco implements IStrategie {
 			
 			comparaison = joueur1.compareTo(joueur2);
 			
+			//Condition lorsque les joueurs vont interchanger de place
 			if(comparaison == -1){
 				
 				collectionJoueurs.swap(joueur1,joueur2);
@@ -54,6 +55,7 @@ public class ReglesBunco implements IStrategie {
 			
 		}
 		
+		//Boucle pour parcourrir la collection joueur de la fin vers le debut 
 		for( int j = MAX_JOUEURS;  j > 0; j--){
 					
 			joueur1 = collectionJoueurs.getJoueurs(j); 
@@ -61,6 +63,7 @@ public class ReglesBunco implements IStrategie {
 			
 			comparaison = joueur1.compareTo(joueur2);
 			
+			//Condition lorsque les joueurs vont interchanger de place
 			if(comparaison == 1){
 				
 				collectionJoueurs.swap(joueur2,joueur1);

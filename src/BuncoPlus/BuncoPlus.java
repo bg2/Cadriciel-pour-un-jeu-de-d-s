@@ -47,41 +47,36 @@ public class BuncoPlus {
     /**
      * Constructeur de la classe BuncoPlus.
      */
-    public BuncoPlus(){
+	public BuncoPlus() {
 
-        AbstractCreateurPartie createurPartie = new CreateurPartie();
+		AbstractCreateurPartie createurPartie = new CreateurPartie();
 
-        jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
+		jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
 
-        IterateurDes iterateur = jeu.getDes().createIterateur();
+		IterateurDes iterateur = jeu.getDes().createIterateur();
 
-        De de;
+		De de;
 
-        while(iterateur.hasNext()){
+		while (iterateur.hasNext()) {
 
-            de = (De)iterateur.next();
-            de.rouler();
-            System.out.println(de.getFace());
-        }
+			de = (De) iterateur.next();
+			de.rouler();
+			System.out.println(de.getFace());
+		}
 
-        IterateurJoueurs iterateur2 = jeu.getJoueurs().createIterateur();
+		IterateurJoueurs iterateur2 = jeu.getJoueurs().createIterateur();
 
-        Joueur joueur;
+		Joueur joueur;
 
-        while(iterateur2.hasNext()){
-            joueur = (Joueur)iterateur2.next();
-            System.out.println(joueur.getNom());
-        }
-        
-    }
-    
-    private CollectionJoueurs calculerLeVainqueur(Joueur joueur) {
-    	
-    	 regles.calculerLeVainqueur(joueur);
-    	 
-    	 return null;
-    	
-    }
+		while (iterateur2.hasNext()) {
+			joueur = (Joueur) iterateur2.next();
+			System.out.println(joueur.getNom());
+		}
 
+		CollectionJoueurs joueurs;
+
+		// joueurs = regles.calculerLeVainqueur(jeu.getJoueurs());
+
+	}
 
 }

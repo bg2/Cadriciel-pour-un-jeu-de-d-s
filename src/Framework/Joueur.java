@@ -60,18 +60,34 @@ public class Joueur implements Comparable<Joueur> {
 		return compare;
 	}
 
+	/**
+	 * Acceseur du nom du joueur
+	 * @return nom Le nom du joueur 
+	 */
 	public String getNom() {
 		return nom;
 	}
 
+	/**
+	 * Mutateur du score du joueur. 
+	 * @param valeur Le score que nous voulouns indiquer.
+	 */
 	public void setScore(int valeur) {
 		score = valeur;
 	}
 
+	/**
+	 * Methode pour augmenter le score du joueur 
+	 * @param valeur Le score que nous voulons ajouter a celui du joueur. 
+	 */
 	public void incrementerScore(int valeur) {
 		score = score + valeur;
 	}
 
+	/**
+	 * Accesseur du score du joueur.
+	 * @return score Le score du joueur. 
+	 */
 	public int getScore() {
 		return score;
 	}
