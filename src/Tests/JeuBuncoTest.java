@@ -53,7 +53,20 @@ public class JeuBuncoTest {
 	}
 
 	/**
-	 * Cette methode verifie si on recoit bien la collection de des.
+	 * Cette methode va creer un nouveau jeu et va le comparer a un
+	 * prealablement cree pour Tester la creation.
+	 */
+	@Test
+	public void constructeurTest() {
+		Jeu jeu2;
+		AbstractCreateurPartie createurPartie = new CreateurPartie();
+		jeu2 = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
+		assertTrue(jeu2.getTour() == jeu.getTour());
+	}
+
+	/**
+	 * Cette methode verifie si on recoit bien la collection de des et la
+	 * comparer avec la collection envoyee.
 	 */
 	@Test
 	public void getDesTest() {
@@ -68,7 +81,8 @@ public class JeuBuncoTest {
 	}
 
 	/**
-	 * Cette methode verifie si on recoit bien la collection de jouers.
+	 * Cette methode verifie si on recoit bien la collection de joueurs et la
+	 * comparer avec la collection envoyee.
 	 */
 	@Test
 	public void getJoueursTest() {
@@ -79,8 +93,9 @@ public class JeuBuncoTest {
 		assertTrue(jeu.getJoueurs().equals(collectionJoueurs));
 	}
 
-	/*/*
-	 * Cette methode verifie si on recoit bien le nombre de tour de la classe.
+	/**
+	 * Cette methode verifie si on recoit bien le nombre de tour de la classe et
+	 * la compararer avec la valeur envoyee.
 	 */
 	@Test
 	public void getTourTest() {
@@ -88,6 +103,16 @@ public class JeuBuncoTest {
 		jeu.setNbTours(nbTour);
 
 		assertTrue(jeu.getTour() == nbTour);
+	}
+
+	/**
+	 * Cette methode verifie si on recoit bien le joueur de la classe et la
+	 * comparer avec la variable envoyee.
+	 */
+	@Test
+	public void getJoueurTest() {
+		jeu.setJoueur(joueur1);
+		assertTrue(jeu.getJoueur().equals(joueur1));
 	}
 
 }
