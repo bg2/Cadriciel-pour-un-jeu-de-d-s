@@ -2,11 +2,18 @@ package Tests;
 
 import static org.junit.Assert.assertTrue;
 
-import Framework.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import BuncoPlus.*;
+import BuncoPlus.CreateurPartie;
+import BuncoPlus.ReglesBunco;
+import Framework.AbstractCreateurPartie;
+import Framework.CollectionDes;
+import Framework.CollectionJoueurs;
+import Framework.De;
+import Framework.Iterateur;
+import Framework.Jeu;
+import Framework.Joueur;
 
 public class StrategieBuncoTest {
 
@@ -25,7 +32,7 @@ public class StrategieBuncoTest {
 
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
-	
+
 	private ReglesBunco reglesBunco;
 
 	private Jeu jeu;
@@ -62,7 +69,7 @@ public class StrategieBuncoTest {
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(joueur.equals(joueur3));
 	}
@@ -84,7 +91,7 @@ public class StrategieBuncoTest {
 		jeu.setJoueurs(collectionJoueurs);
 
 		jeu.setNbTours(6);
-		
+
 		jeu.setTour(1);
 
 		jeu.setJoueur(joueur1);
@@ -94,12 +101,12 @@ public class StrategieBuncoTest {
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(joueur.getScore() == 21);
 
 	}
-	
+
 	@Test
 	public void calculerScoreTour0PointTest() {
 		de1.setFace(1);
@@ -117,7 +124,7 @@ public class StrategieBuncoTest {
 		jeu.setJoueurs(collectionJoueurs);
 
 		jeu.setNbTours(6);
-		
+
 		jeu.setTour(2);
 
 		jeu.setJoueur(joueur1);
@@ -127,12 +134,12 @@ public class StrategieBuncoTest {
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(joueur.getScore() == 0);
 
 	}
-	
+
 	@Test
 	public void calculerScoreTour5PointTest() {
 		de1.setFace(1);
@@ -150,7 +157,7 @@ public class StrategieBuncoTest {
 		jeu.setJoueurs(collectionJoueurs);
 
 		jeu.setNbTours(6);
-		
+
 		jeu.setTour(2);
 
 		jeu.setJoueur(joueur1);
@@ -160,12 +167,12 @@ public class StrategieBuncoTest {
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(joueur.getScore() == 5);
 
 	}
-	
+
 	@Test
 	public void calculerScoreTourDesPointsTest() {
 		de1.setFace(2);
@@ -183,7 +190,7 @@ public class StrategieBuncoTest {
 		jeu.setJoueurs(collectionJoueurs);
 
 		jeu.setNbTours(6);
-		
+
 		jeu.setTour(2);
 
 		jeu.setJoueur(joueur1);
@@ -193,16 +200,21 @@ public class StrategieBuncoTest {
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(joueur.getScore() == 2);
 
 	}
 
+	@Test
 	public void passeLaMainTest() {
 		de1.setFace(1);
 		de2.setFace(4);
 		de3.setFace(3);
+
+		jeu.setTour(2);
+		jeu.setNbTours(6);
+
 		collectionDes.add(de1);
 		collectionDes.add(de2);
 		collectionDes.add(de3);
@@ -213,21 +225,14 @@ public class StrategieBuncoTest {
 		collectionJoueurs.add(joueur2);
 
 		jeu.setJoueurs(collectionJoueurs);
-
-		jeu.setNbTours(6);
-		
-		jeu.setTour(2);
-
 		jeu.setJoueur(joueur1);
-
-		jeu.calculerScoreTour();
 
 		collectionJoueurs = jeu.getJoueurs();
 
 		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur)iterateur.next();
+		Joueur joueur = (Joueur) iterateur.next();
 
-		assertTrue(reglesBunco.calculerScoreTour(jeu) == true);
+		assertTrue(jeu.calculerScoreTour() == true);
 	}
 
 }
