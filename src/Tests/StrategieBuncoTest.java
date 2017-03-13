@@ -1,3 +1,25 @@
+/*******************************************************************************
+Cours:   LOG121
+Session: H2017
+Groupe:  02
+Projet: Laboratoire #3
+Étudiant(e)s: Vanessa Baquero
+			  Nam Vu Khanh
+			  Alexandre Trepanier             
+              
+Professeur : Francis Cardinal 
+Nom du fichier: (Framework) package-info.java
+Date créé: 2017-03-11
+Date dern. modif. 2017-03-11
+********************************************************************************
+Historique des modifications
+********************************************************************************
+2017-03-11 Version initiale (Nam Vu Khanh)
+2017-03-12 Version finale (Nam Vu Khanh)
+2017-03-12 JavaDoc (Vanessa) 
+
+*******************************************************************************/
+
 package Tests;
 
 import static org.junit.Assert.assertTrue;
@@ -6,13 +28,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import BuncoPlus.CreateurPartie;
-import Framework.AbstractCreateurPartie;
-import Framework.CollectionDes;
-import Framework.CollectionJoueurs;
-import Framework.De;
-import Framework.Iterateur;
-import Framework.Jeu;
-import Framework.Joueur;
+import Framework.*;
 
 public class StrategieBuncoTest {
 

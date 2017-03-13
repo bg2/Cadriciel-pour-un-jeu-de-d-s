@@ -4,7 +4,7 @@ Session: H2017
 Groupe:  02
 Projet: Laboratoire #3
 Étudiant(e)s:   Vanessa Baquero
-                 Nam Vu
+                 Nam Vu Khanh
                  Alexandre Trepanier
 
 Professeur : Francis Cardinal
