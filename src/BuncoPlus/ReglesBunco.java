@@ -101,7 +101,7 @@ public boolean calculerScoreTour(Jeu jeu) {
 			changer = false;
 		}
 
-		changer= true;	
+		
 		return changer; 
     }
 
