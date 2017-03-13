@@ -34,7 +34,7 @@ public class Joueur implements Comparable<Joueur> {
 	 */
 	public Joueur(String nom) {
 
-		this.nom = nom;
+		setNom(nom);
 		score = 0;
 	}
 
@@ -71,6 +71,10 @@ public class Joueur implements Comparable<Joueur> {
 	 */
 	public void incrementerScore(int valeur) {
 		this.score += valeur;
+	}
+	
+	public void setNom(String nom){
+		this.nom = nom;	
 	}
 
 	public String getNom() {

@@ -9,14 +9,11 @@ import org.junit.Test;
 import Framework.Joueur;
 
 public class JoueurBuncoTest {
-
-	//Attributs qui seront utilisés pour les tests
+	// Attributs qui seront utilisés pour les tests
 	private Joueur joueur1;
 	private Joueur joueur2;
 	private String nom1 = "joueur1";
 	private String nom2 = "joueur2";
-	private int scoreJoueur1 = 21;
-	private int scoreJoueur2 = 5;
 
 	/**
 	 * Methode qui va creer deux joueurs pour les tests de la classe.
@@ -25,59 +22,59 @@ public class JoueurBuncoTest {
 	public void initialiser() {
 		joueur1 = new Joueur(nom1);
 		joueur2 = new Joueur(nom2);
-
 	}
 
 	/**
-	 * Methode qui obtient les noms des joueurs et verifient ce soint le bons. 
+	 * Methode qui obtient les noms des joueurs et verifient ce soint le bons.
 	 */
 	@Test
 	public void getNomJoueurTest() {
-		assertEquals(joueur1.getNom(), nom1);
-		assertEquals(joueur2.getNom(), nom2);
+		String nom = "george";
+		joueur1.setNom(nom);
+		assertEquals(joueur1.getNom(), nom);
 	}
 
 	/**
-	 * Methode qui obtient les score des joueurs et verifient ce soint le bons. 
+	 * Methode qui obtient les score des joueurs et verifient ce soint le bons.
 	 */
 	@Test
 	public void getScoreJoueurTest() {
-		joueur1.incrementerScore(scoreJoueur1);
-		joueur2.incrementerScore(scoreJoueur2);
-		assertTrue(joueur1.getScore() == scoreJoueur1);
-		assertTrue(joueur2.getScore() == scoreJoueur2);
+		int score1 = 21;
+		int score2 = 5;
+		joueur1.incrementerScore(score1);
+		joueur2.incrementerScore(score2);
+		assertTrue(joueur1.getScore() == score1);
 	}
 
 	/**
-	 * Methode qui compare le score de deux joueurs, verifie qu'un est 
-	 * superieur a l'autre. 
+	 * Methode qui compare le score de deux joueurs, verifie qu'un est superieur
+	 * a l'autre.
 	 */
 	@Test
 	public void comparerScoreSuperieurTest() {
-		joueur1.incrementerScore(scoreJoueur1);
-		joueur2.incrementerScore(scoreJoueur2);
+		joueur1.incrementerScore(34);
+		joueur2.incrementerScore(21);
 		assertTrue(joueur1.compareTo(joueur2) == 1);
 	}
 
 	/**
-	 * Methode qui compare le score de deux joueurs, verifie qu'un est 
-	 * inferieur a l'autre. 
+	 * Methode qui compare le score de deux joueurs, verifie qu'un est inferieur
+	 * a l'autre.
 	 */
 	@Test
 	public void comparerScoreInferieurTest() {
-		joueur1.incrementerScore(scoreJoueur1);
-		joueur2.incrementerScore(scoreJoueur2);
+		joueur1.incrementerScore(2);
+		joueur2.incrementerScore(6);
 		assertTrue(joueur1.compareTo(joueur2) == -1);
 	}
 
 	/**
-	 * Methode qui compare le score des deux joueurs, qu'ils soient égaux. 
+	 * Methode qui compare le score des deux joueurs, qu'ils soient égaux.
 	 */
 	@Test
 	public void comparerScoreEquivalentTest() {
-		joueur1.incrementerScore(scoreJoueur1);
-		joueur2.incrementerScore(scoreJoueur2);
+		joueur1.incrementerScore(3);
+		joueur2.incrementerScore(3);
 		assertTrue(joueur1.compareTo(joueur2) == 0);
 	}
-
 }
