@@ -20,10 +20,7 @@ public class JeuBuncoTest {
 	private Joueur joueur2;
 	private String nomJoueur1 = "Joueur1";
 	private String nomJoueur2 = "Joueur2";
-	private int scoreJoueur1 = 21;
-	private int scoreJoueur2 = 5;
 
-	private int numeroDeTour = 1;
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
 	private Application bunco;
@@ -54,6 +51,7 @@ public class JeuBuncoTest {
 
 	@Test
 	public void getJoueursTest() {
+		
 		collectionJoueurs.add(joueur1);
 		bunco.getJeu().setJoueurs(collectionJoueurs);
 		assertTrue(bunco.getJeu().getJoueurs().equals(collectionJoueurs));
@@ -61,8 +59,9 @@ public class JeuBuncoTest {
 
 	@Test
 	public void calculerLeVainqueurTest() {
-		joueur1.setScore(scoreJoueur1);
-		joueur2.setScore(scoreJoueur2);
+		
+		joueur1.setScore(21);
+		joueur2.setScore(5);
 		collectionJoueurs.add(joueur1);
 		collectionJoueurs.add(joueur2);
 
@@ -72,6 +71,14 @@ public class JeuBuncoTest {
 
 		assertTrue(bunco.getJeu().getJoueurs().getJoueurs(0).equals(joueur1));
 
+	}
+	
+	@Test
+	public void getTourTest(){
+		int nbTour = 1;
+		bunco.getJeu().setNbTours(nbTour);
+		
+		assertTrue(bunco.getJeu().getTour() == nbTour);
 	}
 
 	@Test
@@ -88,7 +95,7 @@ public class JeuBuncoTest {
 
 		bunco.getJeu().setJoueurs(collectionJoueurs);
 
-		bunco.getJeu().setNbTours(numeroDeTour);
+		bunco.getJeu().setNbTours(1);
 
 		bunco.getJeu().calculerScoreTour();
 
