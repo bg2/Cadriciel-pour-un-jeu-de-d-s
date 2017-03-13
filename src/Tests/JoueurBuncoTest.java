@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import Framework.De;
 import Framework.Joueur;
 
 public class JoueurBuncoTest {
@@ -24,6 +25,17 @@ public class JoueurBuncoTest {
 		joueur2 = new Joueur(nom2);
 	}
 
+	/**
+	 * Cette methode va creer un nouveau joueur et va le comparer a un
+	 * prealablement cree pour Tester la creation.
+	 */
+	@Test
+	public void constructeurTest() {
+
+		Joueur joueur = new Joueur("joueur1");
+		assertTrue(joueur.getNom() == joueur1.getNom());
+
+	}
 	/**
 	 * Methode qui obtient les noms des joueurs et verifient ce soint le bons.
 	 */

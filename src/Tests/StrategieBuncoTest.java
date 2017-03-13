@@ -16,6 +16,7 @@ import Framework.Joueur;
 
 public class StrategieBuncoTest {
 
+	//Attributs necessaires pour les tests
 	private final int MAX_DES = 3;
 	private final int NB_FACES_DES = 6;
 	private final int NB_JOUEURS = 4;
@@ -34,6 +35,9 @@ public class StrategieBuncoTest {
 
 	private Jeu jeu;
 
+	/**
+	 * Methode qui initialise les test pour tester StrategieBunco. 
+	 */
 	@Before
 	public void initialiser() {
 		AbstractCreateurPartie createurPartie = new CreateurPartie();
@@ -48,6 +52,9 @@ public class StrategieBuncoTest {
 		joueur3 = new Joueur(nomJoueur3);
 	}
 
+	/**
+	 * Methode qui verifie que le vainqueur est bien identifé.
+	 */
 	@Test
 	public void calculerLeVainqueurTest() {
 
@@ -70,6 +77,9 @@ public class StrategieBuncoTest {
 		assertTrue(joueur.equals(joueur3));
 	}
 
+	/**
+	 * Methode qui calcule le score de la main lorsqu'il y a Bunco. 
+	 */
 	@Test
 	public void calculerScoreTourBuncoTest() {
 		de1.setFace(1);
@@ -103,6 +113,9 @@ public class StrategieBuncoTest {
 
 	}
 
+	/**
+	 * Methode qui calcule le score lorsque le tour est 0. 
+	 */
 	@Test
 	public void calculerScoreTour0PointTest() {
 		de1.setFace(1);
@@ -136,6 +149,9 @@ public class StrategieBuncoTest {
 
 	}
 
+	/**
+	 * Methode qui calcule le score lorsque le tour est 5. 
+	 */
 	@Test
 	public void calculerScoreTour5PointTest() {
 		de1.setFace(1);
@@ -169,6 +185,10 @@ public class StrategieBuncoTest {
 
 	}
 
+	/**
+	 * Methode qui calcule que le score de la main (ou tour) soit bien calculé. 
+	 * Pour les coditions données dans l'ennoncé. 
+	 */
 	@Test
 	public void calculerScoreTourDesPointsTest() {
 		de1.setFace(2);
@@ -202,6 +222,10 @@ public class StrategieBuncoTest {
 
 	}
 
+	/**
+	 * Methode chargee de tester que le joeur passe la main au sivant lorsque
+	 * defini. 
+	 */
 	@Test
 	public void passeLaMainTest() {
 		de1.setFace(3);
