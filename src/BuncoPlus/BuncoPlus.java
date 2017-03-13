@@ -13,9 +13,24 @@ public class BuncoPlus extends Jeu{
     public BuncoPlus(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
         super(des, joueurs, regles);
+        nbTours = 2;
 
         test();
         test2();
+    }
+
+    public void jouer(){
+
+        while(tour <= nbTours){
+
+            do{
+
+            }while();
+
+            tour++;
+        }
+
+        calculerLeVainqueur();
     }
 
     public void test(){
@@ -59,5 +74,4 @@ public class BuncoPlus extends Jeu{
     	
     	calculerScoreTour();
     }
-    
 }

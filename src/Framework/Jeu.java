@@ -24,6 +24,7 @@ public class Jeu{
 
 	//Attributs qui seront utilis�s dans la classe 
 	protected int nbTours;
+	protected int tour;
 	protected IStrategie regles;
 	protected CollectionDes des;
 	protected CollectionJoueurs joueurs;
@@ -39,6 +40,7 @@ public class Jeu{
 		this.des = des;
 		this.joueurs = joueurs;
 		this.regles = regles;
+		tour = 1;
 	}
 	
 	public void setDes(CollectionDes des){
@@ -65,12 +67,16 @@ public class Jeu{
 		return joueurs;
 	}
 
+	public int getTour(){
+		return tour;
+	}
+
 	public void calculerLeVainqueur() {
-		joueurs = regles.calculerLeVainqueur(joueurs);
+		joueurs = regles.calculerLeVainqueur(this);
 	}
 
 	public void calculerScoreTour() {
-		regles.calculerScoreTour(des,nbTours);
+		regles.calculerScoreTour(this);
 	}
 
 	public void setNbTours(int nbTours) {

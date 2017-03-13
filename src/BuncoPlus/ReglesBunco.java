@@ -24,11 +24,10 @@ import Framework.*;
 
 public class ReglesBunco implements IStrategie{
 
-	
-
-	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
+	public  CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
 
 		boolean check;
+		CollectionJoueurs joueurs = jeu.getJoueurs();
 
 		Joueur joueur;
 		Joueur joueur2;
@@ -60,49 +59,48 @@ public class ReglesBunco implements IStrategie{
 		return joueurs;
     }
 
-public void calculerScoreTour(CollectionDes des, int tour) {
-    	
-    	
+public void calculerScoreTour(Jeu jeu) {
+
     	int score=1;
     	boolean changer = true;
+    	CollectionDes des = jeu.getDes();
+    	int tour = jeu.getTour();
     	Joueur joueur = new Joueur("bitch");
 
+		Iterateur iterateur = des.createIterateur();
 
-		Iterateur  iterateurDe = des.createIterateur();
+		while(iterateur.hasNext()){
 
-		while(iterateurDe.hasNext()){
-			De de = (De)iterateurDe.next();
+			De de = (De)iterateur.next();
 			de.rouler();
-			if(de.getFace()==tour){
-				score=score+1;
-			}
+
+			if(de.getFace() == tour)
+				score++;
 		}
 
-			if(score==3){
-				score=21;
-			}
-			else if(score==0){
-				iterateurDe = des.createIterateur();
+		if(score == 3)
+			score = 21;
+		else if(score == 0){
+			iterateur = des.createIterateur();
 
-				De de1 = (De)iterateurDe.next();
-				De de2 = (De)iterateurDe.next();
-				De de3 = (De)iterateurDe.next();
-				if((de1.compareTo(de2)==0)&&(de2.compareTo(de3)==0)){
-					score=5;
-				}
-			}
-			
-			System.out.println("score:"+score);
-			
-			joueur.incrementerScore(score);
+			De de1 = (De)iterateur.next();
+			De de2 = (De)iterateur.next();
+			De de3 = (De)iterateur.next();
 
-			System.out.println("score cumulatif:"+joueur.getScore());
-			
-			if(score==21 || score==0){
-				changer = false;
-			}
+			if((de1.compareTo(de2) == 0) && (de2.compareTo(de3) == 0))
+				score = 5;
+		}
 
-			changer= true;
+		System.out.println("score: " + score);
 
+		joueur.incrementerScore(score);
+
+		System.out.println("score cumulatif: " + joueur.getScore());
+
+		if(score == 21 || score == 0){
+			changer = false;
+		}
+
+		changer= true;
     }
 }
