@@ -49,9 +49,7 @@ public class Application {
         AbstractCreateurPartie createurPartie = new CreateurPartie();
 
         bunco = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
-    }
-    
-    public Jeu getJeu(){
-    	return bunco;
+
+        ((BuncoPlus)bunco).jouer();
     }
 }

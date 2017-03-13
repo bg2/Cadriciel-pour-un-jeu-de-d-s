@@ -79,7 +79,7 @@ public class CreateurPartie extends AbstractCreateurPartie{
 
     public Jeu initJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
-        Jeu jeu = createur.creerJeu(des, joueurs, regles);
+        Jeu jeu = (BuncoPlus)createur.creerJeu(des, joueurs, regles);
 
         return jeu;
     }

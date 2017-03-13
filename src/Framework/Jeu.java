@@ -28,6 +28,7 @@ public class Jeu{
 	protected IStrategie regles;
 	protected CollectionDes des;
 	protected CollectionJoueurs joueurs;
+	protected Joueur joueur;
 
 	/**
 	 * Constructeur
@@ -67,6 +68,10 @@ public class Jeu{
 		return joueurs;
 	}
 
+	public Joueur getJoueur(){
+		return joueur;
+	}
+
 	public int getTour(){
 		return tour;
 	}
@@ -75,8 +80,8 @@ public class Jeu{
 		joueurs = regles.calculerLeVainqueur(this);
 	}
 
-	public void calculerScoreTour() {
-		regles.calculerScoreTour(this);
+	public boolean calculerScoreTour() {
+		return regles.calculerScoreTour(this);
 	}
 
 	public void setNbTours(int nbTours) {

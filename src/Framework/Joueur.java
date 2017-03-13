@@ -81,7 +81,7 @@ public class Joueur implements Comparable<Joueur> {
 	 * @param valeur Le score que nous voulons ajouter a celui du joueur. 
 	 */
 	public void incrementerScore(int valeur) {
-		this.score = this.score + valeur;
+		this.score += valeur;
 	}
 
 	/**

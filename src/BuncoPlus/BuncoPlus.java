@@ -13,65 +13,83 @@ public class BuncoPlus extends Jeu{
     public BuncoPlus(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
         super(des, joueurs, regles);
-        nbTours = 2;
-
-        test();
-        test2();
+        nbTours = 6;
     }
 
+    /**
+     * Méthode qui fait dérouler une partie
+     */
     public void jouer(){
+
+        Iterateur iterateur;
+        boolean prochain;
 
         while(tour <= nbTours){
 
+            iterateur = joueurs.createIterateur();
+
+            System.out.println("\nTour: " + tour);
+
             do{
 
-            }while(false);
+                joueur = (Joueur) iterateur.next();
+
+                System.out.println("*****************");
+                System.out.println(joueur.getNom());
+
+                do {
+
+                    roulerDes();
+                    afficherDes();
+                    prochain = calculerScoreTour();
+
+                } while(!prochain);
+
+                System.out.println("Score cumulé: " + joueur.getScore());
+                System.out.println("*****************");
+                System.out.println();
+
+            }while(iterateur.hasNext());
 
             tour++;
         }
 
         calculerLeVainqueur();
+        afficherJoueurs();
     }
 
-    public void test(){
+    public void roulerDes(){
 
         Iterateur iterateur = des.createIterateur();
 
-        De de;
+        while(iterateur.hasNext()){
 
-        while (iterateur.hasNext()) {
-
-            de = (De) iterateur.next();
+            De de = (De)iterateur.next();
             de.rouler();
-            System.out.println(de.getFace());
         }
+    }
 
-        Iterateur iterateur2 = joueurs.createIterateur();
+    public void afficherDes(){
 
-        Joueur joueur;
+        Iterateur iterateur = des.createIterateur();
 
-        int score = 0;
-        while (iterateur2.hasNext()) {
-            joueur = (Joueur) iterateur2.next();
-            joueur.setScore(score++);
-            System.out.println(joueur.getNom());
+        while(iterateur.hasNext()){
+
+            De de = (De)iterateur.next();
+            System.out.print(de.getFace() + " ");
         }
-
-        calculerLeVainqueur();
 
         System.out.println();
-
-        iterateur2 = joueurs.createIterateur();
-
-        while (iterateur2.hasNext()) {
-            joueur = (Joueur) iterateur2.next();
-            System.out.println(joueur.getNom() + " : " + joueur.getScore());
-        }
-
     }
-    
-    public void test2(){
-    	
-    	calculerScoreTour();
+
+    public void afficherJoueurs(){
+
+        Iterateur iterateur = joueurs.createIterateur();
+
+        while(iterateur.hasNext()){
+
+            Joueur joueur = (Joueur) iterateur.next();
+            System.out.println(joueur.getNom() + ": " + joueur.getScore());
+        }
     }
 }
