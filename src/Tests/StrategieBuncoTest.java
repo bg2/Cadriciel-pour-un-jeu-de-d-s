@@ -1,20 +1,23 @@
 package Tests;
 
-import BuncoPlus.Application;
-import BuncoPlus.ReglesBunco;
-import Framework.CollectionDes;
-import Framework.CollectionJoueurs;
-import Framework.De;
-import Framework.Joueur;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import BuncoPlus.CreateurPartie;
+import Framework.AbstractCreateurPartie;
+import Framework.CollectionDes;
+import Framework.CollectionJoueurs;
+import Framework.De;
+import Framework.Jeu;
+import Framework.Joueur;
+
 public class StrategieBuncoTest {
-	
+
+	private final int MAX_DES = 3;
 	private final int NB_FACES_DES = 6;
+	private final int NB_JOUEURS = 4;
 	private De de1;
 	private De de2;
 	private De de3;
@@ -27,11 +30,13 @@ public class StrategieBuncoTest {
 
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
-	private Application bunco;
-	
+
+	private Jeu jeu;
+
 	@Before
-	public void initialiser(){
-		bunco = new Application();
+	public void initialiser() {
+		AbstractCreateurPartie createurPartie = new CreateurPartie();
+		jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
 		collectionDes = new CollectionDes();
 		collectionJoueurs = new CollectionJoueurs();
 		de1 = new De(NB_FACES_DES);
@@ -39,23 +44,24 @@ public class StrategieBuncoTest {
 		de3 = new De(NB_FACES_DES);
 		joueur1 = new Joueur(nomJoueur1);
 		joueur2 = new Joueur(nomJoueur2);
+		joueur3 = new Joueur(nomJoueur3);
 	}
-	
+
 	@Test
-	public void calculerLeVainqueurTest(){
-		
+	public void calculerLeVainqueurTest() {
+
 		joueur1.setScore(21);
 		joueur2.setScore(5);
-		joueur3.setScore(15);
+		joueur3.setScore(25);
 		collectionJoueurs.add(joueur1);
 		collectionJoueurs.add(joueur2);
 		collectionJoueurs.add(joueur3);
 
-		bunco.getJeu().setJoueurs(collectionJoueurs);
+		jeu.setJoueurs(collectionJoueurs);
 
-		bunco.getJeu().calculerLeVainqueur();
+		jeu.calculerLeVainqueur();
 
-		assertTrue(bunco.getJeu().getJoueurs().getJoueurs(0).equals(joueur1));
+		assertTrue(jeu.getJoueurs().getJoueurs(0).equals(joueur3));
 	}
 
 	@Test
@@ -66,24 +72,24 @@ public class StrategieBuncoTest {
 		collectionDes.add(de1);
 		collectionDes.add(de2);
 		collectionDes.add(de3);
-		
-		bunco.getJeu().setDes(collectionDes);
+
+		jeu.setDes(collectionDes);
 
 		collectionJoueurs.add(joueur1);
+		collectionJoueurs.add(joueur2);
 
-		bunco.getJeu().setJoueurs(collectionJoueurs);
+		jeu.setJoueurs(collectionJoueurs);
 
-		bunco.getJeu().setNbTours(1);
+		jeu.setNbTours(1);
 
-		bunco.getJeu().calculerScoreTour();
+		jeu.calculerScoreTour();
 
-		assertTrue(bunco.getJeu().getJoueurs().getJoueurs(0).getScore() == 21);
+		assertTrue(jeu.getJoueurs().getJoueurs(0).getScore() == 21);
 
-	
 	}
-	
-	public void passeLaMainTest(){
-		
+
+	public void passeLaMainTest() {
+
 	}
 
 }

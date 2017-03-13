@@ -19,12 +19,17 @@ Historique des modifications
 *******************************************************************************/
 package BuncoPlus;
 
-import Framework.*;
+import Framework.CollectionDes;
+import Framework.CollectionJoueurs;
+import Framework.De;
+import Framework.IStrategie;
+import Framework.Iterateur;
+import Framework.Jeu;
+import Framework.Joueur;
 
+public class ReglesBunco implements IStrategie {
 
-public class ReglesBunco implements IStrategie{
-
-	public  CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
+	public CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
 
 		boolean check;
 		CollectionJoueurs joueurs = jeu.getJoueurs();
@@ -34,7 +39,7 @@ public class ReglesBunco implements IStrategie{
 		Iterateur iterateur;
 		Iterateur iterateur2;
 
-		do{
+		do {
 
 			check = true;
 			iterateur = joueurs.createIterateur();
@@ -42,62 +47,61 @@ public class ReglesBunco implements IStrategie{
 
 			iterateur2.next();
 
-			do{
+			do {
 
-				joueur = (Joueur)iterateur.next();
-				joueur2 = (Joueur)iterateur2.next();
+				joueur = (Joueur) iterateur.next();
+				joueur2 = (Joueur) iterateur2.next();
 
-				if(joueur.compareTo(joueur2) == -1) {
+				if (joueur.compareTo(joueur2) == -1) {
 					joueurs.swap(joueur, joueur2);
 					check = false;
 				}
 
-			}while(iterateur2.hasNext());
+			} while (iterateur2.hasNext());
 
-		}while(!check);
+		} while (!check);
 
 		return joueurs;
-    }
+	}
 
-public boolean calculerScoreTour(Jeu jeu) {
+	public boolean calculerScoreTour(Jeu jeu) {
 
-    	int score = 0;
-    	boolean changer = true;
-    	CollectionDes des = jeu.getDes();
-    	int tour = jeu.getTour();
-    	Joueur joueur = jeu.getJoueur();
+		int score = 0;
+		boolean changer = true;
+		CollectionDes des = jeu.getDes();
+		int tour = jeu.getTour();
+		Joueur joueur = jeu.getJoueur();
 
 		Iterateur iterateur = des.createIterateur();
 
-		while(iterateur.hasNext()){
+		while (iterateur.hasNext()) {
 
-			De de = (De)iterateur.next();
+			De de = (De) iterateur.next();
 
-			if(de.getFace() == tour) {
+			if (de.getFace() == tour) {
 				score++;
 				changer = false;
 			}
 		}
 
-		if(score == 3){
+		if (score == 3) {
 			score = 21;
-		}
-		else if(score == 0){
+		} else if (score == 0) {
 			iterateur = des.createIterateur();
 
-			De de1 = (De)iterateur.next();
-			De de2 = (De)iterateur.next();
-			De de3 = (De)iterateur.next();
+			De de1 = (De) iterateur.next();
+			De de2 = (De) iterateur.next();
+			De de3 = (De) iterateur.next();
 
-			if((de1.compareTo(de2) == 0) && (de2.compareTo(de3) == 0)) {
+			if ((de1.compareTo(de2) == 0) && (de2.compareTo(de3) == 0)) {
 				score = 5;
 				changer = false;
 			}
 		}
 
 		joueur.incrementerScore(score);
-		
-		return changer; 
-    }
+
+		return changer;
+	}
 
 }
