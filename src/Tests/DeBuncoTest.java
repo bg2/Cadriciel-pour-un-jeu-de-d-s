@@ -35,8 +35,6 @@ public class DeBuncoTest {
 	// Les deux des qui seront utilisés pour les Tests.
 	private De de1;
 	private De de2;
-	private int face1 = 5;
-	private int face2 = 6;
 
 	/**
 	 * Methode qui va creer deux des pour les tests de la classe.
@@ -64,8 +62,8 @@ public class DeBuncoTest {
 	 */
 	@Test
 	public void deSuperieurTest() {
-		de1.setFace(face1);
-		de2.setFace(face2);
+		de1.setFace(6);
+		de2.setFace(3);
 		assertTrue(de1.getFace() > de2.getFace());
 	}
 
@@ -74,8 +72,8 @@ public class DeBuncoTest {
 	 */
 	@Test
 	public void deInferieurTest() {
-		de1.setFace(face1);
-		de2.setFace(face2);
+		de1.setFace(1);
+		de2.setFace(3);
 		assertTrue(de1.getFace() < de2.getFace());
 	}
 
@@ -84,8 +82,8 @@ public class DeBuncoTest {
 	 */
 	@Test
 	public void deEquivalentTest() {
-		de1.setFace(face1);
-		de2.setFace(face2);
+		de1.setFace(4);
+		de2.setFace(4);
 		assertTrue(de1.getFace() == de2.getFace());
 	}
 }
