@@ -71,6 +71,10 @@ public class Jeu{
 		this.joueurs = joueurs;
 	}
 
+	public void setNbTours(int nbTours){
+		this.nbTours = nbTours;
+	}
+
 	public CollectionDes getDes(){
 		return des;
 	}

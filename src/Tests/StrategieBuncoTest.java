@@ -2,16 +2,11 @@ package Tests;
 
 import static org.junit.Assert.assertTrue;
 
+import Framework.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import BuncoPlus.CreateurPartie;
-import Framework.AbstractCreateurPartie;
-import Framework.CollectionDes;
-import Framework.CollectionJoueurs;
-import Framework.De;
-import Framework.Jeu;
-import Framework.Joueur;
 
 public class StrategieBuncoTest {
 
@@ -61,7 +56,12 @@ public class StrategieBuncoTest {
 
 		jeu.calculerLeVainqueur();
 
-		assertTrue(jeu.getJoueurs().getJoueurs(0).equals(joueur3));
+		collectionJoueurs = jeu.getJoueurs();
+
+		Iterateur iterateur = collectionJoueurs.createIterateur();
+		Joueur joueur = (Joueur)iterateur.next();
+
+		assertTrue(joueur.equals(joueur3));
 	}
 
 	@Test
@@ -84,7 +84,12 @@ public class StrategieBuncoTest {
 
 		jeu.calculerScoreTour();
 
-		assertTrue(jeu.getJoueurs().getJoueurs(0).getScore() == 21);
+		collectionJoueurs = jeu.getJoueurs();
+
+		Iterateur iterateur = collectionJoueurs.createIterateur();
+		Joueur joueur = (Joueur)iterateur.next();
+
+		assertTrue(joueur.getScore() == 21);
 
 	}
 

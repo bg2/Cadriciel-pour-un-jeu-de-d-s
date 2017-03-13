@@ -75,11 +75,10 @@ public class De implements Comparable<De>{
 		face = aleatoire;
 	}
 	
-	/**
-	 * Getter de face
-	 * 
-	 * @return face La face du dé actuelle
-	 */
+	public void setFace(int face){
+		this.face = face;
+	}
+
 	public int getFace() {
 		return face;
 	}
