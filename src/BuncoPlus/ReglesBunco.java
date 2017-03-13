@@ -59,7 +59,7 @@ public class ReglesBunco implements IStrategie{
 		return joueurs;
     }
 
-public void calculerScoreTour(Jeu jeu) {
+public boolean calculerScoreTour(Jeu jeu) {
 
     	int score=1;
     	boolean changer = true;
@@ -101,6 +101,8 @@ public void calculerScoreTour(Jeu jeu) {
 			changer = false;
 		}
 
-		changer= true;
+		changer= true;	
+		return changer; 
     }
+
 }

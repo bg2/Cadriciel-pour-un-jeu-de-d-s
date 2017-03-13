@@ -33,6 +33,7 @@ public interface IStrategie {
 
     /**
      * Méthode pour calculer le score du joueur actuel
+     * @return 
      */
-    void calculerScoreTour(Jeu jeu);
+    boolean calculerScoreTour(Jeu jeu);
 }
