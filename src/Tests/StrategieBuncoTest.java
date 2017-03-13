@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import BuncoPlus.CreateurPartie;
-import BuncoPlus.ReglesBunco;
 import Framework.AbstractCreateurPartie;
 import Framework.CollectionDes;
 import Framework.CollectionJoueurs;
@@ -33,8 +32,6 @@ public class StrategieBuncoTest {
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
 
-	private ReglesBunco reglesBunco;
-
 	private Jeu jeu;
 
 	@Before
@@ -43,7 +40,6 @@ public class StrategieBuncoTest {
 		jeu = createurPartie.creerPartie(MAX_DES, NB_FACES_DES, NB_JOUEURS);
 		collectionDes = new CollectionDes();
 		collectionJoueurs = new CollectionJoueurs();
-		reglesBunco = new ReglesBunco();
 		de1 = new De(NB_FACES_DES);
 		de2 = new De(NB_FACES_DES);
 		de3 = new De(NB_FACES_DES);
@@ -208,9 +204,9 @@ public class StrategieBuncoTest {
 
 	@Test
 	public void passeLaMainTest() {
-		de1.setFace(1);
-		de2.setFace(4);
-		de3.setFace(3);
+		de1.setFace(3);
+		de2.setFace(1);
+		de3.setFace(4);
 
 		jeu.setTour(2);
 		jeu.setNbTours(6);
@@ -226,11 +222,6 @@ public class StrategieBuncoTest {
 
 		jeu.setJoueurs(collectionJoueurs);
 		jeu.setJoueur(joueur1);
-
-		collectionJoueurs = jeu.getJoueurs();
-
-		Iterateur iterateur = collectionJoueurs.createIterateur();
-		Joueur joueur = (Joueur) iterateur.next();
 
 		assertTrue(jeu.calculerScoreTour() == true);
 	}
