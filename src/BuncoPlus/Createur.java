@@ -9,7 +9,7 @@ Projet: Laboratoire #3
               
 Professeur : Francis Cardinal 
 Nom du fichier: Createur.java
-Date cr��: 2017-02-27
+Date créé: 2017-02-27
 Date dern. modif. 
 ********************************************************************************
 Historique des modifications
@@ -22,11 +22,17 @@ package BuncoPlus;
 
 import Framework.*;
 
+/**
+ * Classe servant à créer les différents éléments d'une partie (jeu, dés, joueurs, règles)
+ */
 public class Createur {
 
 	/**
-	 * Constucteur du jeu.
-	 * @return Jeu
+	 * Création d'un jeu
+	 * @param des La collection de dés
+	 * @param joueurs La collection de joueurs
+	 * @param regles Les règles du jeu
+	 * @return Le jeu instancié
 	 */
 	public Jeu creerJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
@@ -36,7 +42,7 @@ public class Createur {
 	}
 
 	/**
-	 * Createur d'un de selon le nombre de face voulu.
+	 * Createur d'un dé selon le nombre de face voulu.
 	 * @param faces Le nombre de faces du de
 	 * @return de Le de qui a ete cree
 	 */
@@ -47,6 +53,11 @@ public class Createur {
 		return  de;
 	}
 
+	/**
+	 * Création d'un joueur
+	 * @param nom Le nom du joueur
+	 * @return Le joueur instancié
+	 */
 	public Joueur creerJoueur(String nom) {
 
 		Joueur joueur = new Joueur(nom);
@@ -54,6 +65,10 @@ public class Createur {
 		return joueur;
 	}
 
+	/**
+	 * Création des règles
+	 * @return Les règles instanciées
+	 */
 	public IStrategie creerRegles(){
 
 		IStrategie regles = new ReglesBunco();

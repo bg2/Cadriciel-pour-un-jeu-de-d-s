@@ -21,9 +21,17 @@ package BuncoPlus;
 
 import Framework.*;
 
-
+/**
+ * Classe ayant les règles d'une partie de Bunco (calcule d'un vainqueur, score des joueurs)
+ */
 public class ReglesBunco implements IStrategie{
 
+	/**
+	 * Tri la collection de joueurs en ordre décroissant de score
+	 *
+	 * @param jeu Le jeu de la partie en cours
+	 * @return La collection de joueurs triée
+	 */
 	public  CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
 
 		boolean check;
@@ -59,7 +67,12 @@ public class ReglesBunco implements IStrategie{
 		return joueurs;
     }
 
-public boolean calculerScoreTour(Jeu jeu) {
+	/**
+	 * Calcule le score du joueur actuel et si les dés doivent être passés au suivant
+	 * @param jeu Le jeu en cours
+	 * @return changer Boolean si le tour est au joueur suivant
+	 */
+	public boolean calculerScoreTour(Jeu jeu) {
 
     	int score = 0;
     	boolean changer = true;
@@ -99,5 +112,4 @@ public boolean calculerScoreTour(Jeu jeu) {
 		
 		return changer; 
     }
-
 }

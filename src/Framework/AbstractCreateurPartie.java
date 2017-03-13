@@ -23,6 +23,7 @@ import BuncoPlus.Createur;
 
 /**
  * Created by Alexandre on 2017-03-06.
+ * Classe pour le patron template d'une mise en place de jeu
  */
 abstract public class AbstractCreateurPartie {
 
@@ -63,13 +64,20 @@ abstract public class AbstractCreateurPartie {
      */
     abstract public CollectionJoueurs initJoueurs(int nbJoueurs);
 
+    /**
+     * Méthode abstraite de création de règles
+     * @return Les règles du jeu
+     */
     abstract public IStrategie initRegles();
+
+
 
     /**
      * Méthode qui créé le jeu avec les CollectionDes et CollectionJoueurs
      *
      * @param des La collection de dés du jeu
      * @param joueurs La collection de joueurs du jeu
+     * @param regles Les règles du jeu
      * @return Le jeu de la partie
      */
     abstract public Jeu initJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles);

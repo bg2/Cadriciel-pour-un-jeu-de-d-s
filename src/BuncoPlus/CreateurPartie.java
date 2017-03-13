@@ -22,7 +22,9 @@ package BuncoPlus;
 
 import Framework.*;
 
-
+/**
+ * Classe servant à assembler les différents éléments pour créer un jeu de Bunco
+ */
 public class CreateurPartie extends AbstractCreateurPartie{
 
     /**
@@ -70,6 +72,11 @@ public class CreateurPartie extends AbstractCreateurPartie{
         return joueurs;
     }
 
+    /**
+     * Créé les règles utilisées dans le jeu de Bunco
+     *
+     * @return regles Objet ayant les algorithmes de règles de Bunco
+     */
     public IStrategie initRegles(){
 
         IStrategie regles = createur.creerRegles();
@@ -77,6 +84,14 @@ public class CreateurPartie extends AbstractCreateurPartie{
         return regles;
     }
 
+    /**
+     * Initie le jeu Bunco avec les différents éléments
+     *
+     * @param des La collection de dés du jeu
+     * @param joueurs La collection de joueurs du jeu
+     * @param regles Les règles de calcule de score
+     * @return jeu Le jeu instancié
+     */
     public Jeu initJeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
         Jeu jeu = (BuncoPlus)createur.creerJeu(des, joueurs, regles);

@@ -21,8 +21,9 @@ package Framework;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
+ * Itérateur pour la collection de joueurs
  */
-public class IterateurJoueurs<Joueur> implements Iterateur {
+public class IterateurJoueurs implements Iterateur {
 
     private Joueur[] joueurs;
     private int position;

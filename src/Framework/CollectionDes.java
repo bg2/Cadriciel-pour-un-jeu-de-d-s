@@ -21,11 +21,11 @@ package Framework;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
+ * Classe de collection de dés
  */
 public class CollectionDes {
 
     private De[] des;
-    private IterateurDes iterateur;
 
     /**
      * Constructeur
@@ -44,8 +44,12 @@ public class CollectionDes {
         this.des = des;
     }
 
-    public IterateurDes<De> createIterateur(){
-        return new IterateurDes<De>(des);
+    /**
+     * Créé un itérateur pour circuler la collection
+     * @return Itérateur de collection dés
+     */
+    public IterateurDes createIterateur(){
+        return new IterateurDes(des);
     }
 
     /**

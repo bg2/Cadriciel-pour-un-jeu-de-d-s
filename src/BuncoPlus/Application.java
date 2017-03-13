@@ -8,7 +8,7 @@ Projet: Laboratoire #3
                Alexandre Trepanier
 
 Professeur : Francis Cardinal
-Nom du fichier: BuncoPlus.java
+Nom du fichier: Application.java
 Date créé: 2017-03-06
 Date dern. modif.
 ********************************************************************************
@@ -23,7 +23,9 @@ package BuncoPlus;
 
 import Framework.*;
 
-
+/**
+ * Classe principale de l'application
+ */
 public class Application {
 
 	//Constantes qui seront utilisées dans la classe BuncoPlus
@@ -37,13 +39,17 @@ public class Application {
     /**
      * Main qui fera commencer le jeu BuncoPlus.
      * 
-     * @param args
+     * @param args argument du main
      */
     public static void main(String[] args) {
 
         Application application = new Application();
     }
 
+    /**
+     * Constructeur de l'application.
+     * Initie un jeu et le joue.
+     */
     public Application(){
 
         AbstractCreateurPartie createurPartie = new CreateurPartie();

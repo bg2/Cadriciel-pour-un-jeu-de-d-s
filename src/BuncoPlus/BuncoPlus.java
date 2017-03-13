@@ -1,14 +1,38 @@
+/*******************************************************************************
+ Cours:   LOG121
+ Session: H2017
+ Groupe:  02
+ Projet: Laboratoire #3
+ Étudiant(e)s:   Vanessa Baquero
+                 Nam Vu
+                 Alexandre Trepanier
+
+ Professeur : Francis Cardinal
+ Nom du fichier: BuncoPlus.java
+ Date créé: 2017-03-12
+ Date dern. modif.
+ ********************************************************************************
+ Historique des modifications
+ ********************************************************************************
+ 2017-03-12 Version initiale (Alexandre Trépanier)
+
+ *******************************************************************************/
+
 package BuncoPlus;
 
 import Framework.*;
 
 /**
  * Created by Alexandre on 2017-03-12.
+ * Classe d'un jeu de Bunco
  */
 public class BuncoPlus extends Jeu{
 
     /**
-     * Constructeur de la classe BuncoPlus.
+     * Constructeur de la classe BuncoPlus
+     * @param des La collection de dés
+     * @param joueurs La collection de joueurs
+     * @param regles Les règles du jeu
      */
     public BuncoPlus(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles) {
 
@@ -58,6 +82,9 @@ public class BuncoPlus extends Jeu{
         afficherJoueurs();
     }
 
+    /**
+     * Roule tout les dés de la collection de dés
+     */
     public void roulerDes(){
 
         Iterateur iterateur = des.createIterateur();
@@ -69,6 +96,9 @@ public class BuncoPlus extends Jeu{
         }
     }
 
+    /**
+     * Affiche le résultat actuel des dés
+     */
     public void afficherDes(){
 
         Iterateur iterateur = des.createIterateur();
@@ -82,6 +112,9 @@ public class BuncoPlus extends Jeu{
         System.out.println();
     }
 
+    /**
+     * Affiche le nom et les scores de tout les joueurs
+     */
     public void afficherJoueurs(){
 
         Iterateur iterateur = joueurs.createIterateur();

@@ -19,7 +19,10 @@ Historique des modifications
 *******************************************************************************/
 package Framework;
 
-public class IterateurDes<De> implements Iterateur {
+/**
+ * Classe itérateur pour la collection de dés
+ */
+public class IterateurDes implements Iterateur {
 
     private De[] des;
     private int position;

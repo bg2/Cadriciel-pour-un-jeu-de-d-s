@@ -21,11 +21,11 @@ package Framework;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
+ * Classe de collection de joueurs
  */
 public class CollectionJoueurs {
 
     private Joueur[] joueurs;
-    private IterateurJoueurs iterateur;
 
     /**
      * Constructeur
@@ -45,8 +45,12 @@ public class CollectionJoueurs {
         this.joueurs = joueurs;
     }
 
-    public IterateurJoueurs<Joueur> createIterateur(){
-        return new IterateurJoueurs<Joueur>(joueurs);
+    /**
+     * Créé un itérateur pour circuler la collection
+     * @return Itérateur de collection joueurs
+     */
+    public IterateurJoueurs createIterateur(){
+        return new IterateurJoueurs(joueurs);
     }
 
     /**
@@ -80,7 +84,7 @@ public class CollectionJoueurs {
     }
 
     /**
-     * Interchange de place deux joueurs de la collection
+     * Interchange de place de deux joueurs de la collection
      *
      * @param joueur1 Le  joueur 1 a changer de place
      * @param joueur2 Le  joueur 2 a changer de place
@@ -96,17 +100,4 @@ public class CollectionJoueurs {
                 joueurs[i] = joueur1;
         }
     }
-  
-    /**
-     * Acceseur du joueur a la position desiree de la collection 
-     * @param position int qui indique la position dans la collection 
-     * @return Joueurs
-     */
-    public  Joueur getJoueurs(int position) {
-    	
-		return joueurs[position];
-		
-	}
-
-
 }

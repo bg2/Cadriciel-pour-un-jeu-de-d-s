@@ -23,6 +23,7 @@ import java.util.Iterator;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
+ * Interface Itérateur pour les collections du jeu de dés
  */
 public interface Iterateur extends Iterator {
 

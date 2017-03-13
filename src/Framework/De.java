@@ -21,6 +21,9 @@ package Framework;
 
 import java.util.Random;
 
+/**
+ * Classe d'un dé de jeu
+ */
 public class De implements Comparable<De>{
 
 	//Atributs de la classe De
@@ -68,12 +71,8 @@ public class De implements Comparable<De>{
 		Random rnd = new Random();
 		
 		int aleatoire = 1 + rnd.nextInt(nbFaces) ;
-		
-		setFace(aleatoire);
-	}
-	
-	public void setFace(int valeur){
-		face = valeur;
+
+		face = aleatoire;
 	}
 	
 	/**

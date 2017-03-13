@@ -20,6 +20,9 @@ Historique des modifications
 
 package Framework;
 
+/**
+ * Classe de jeu contenant les différents éléments d'une partie (collections, règles)
+ */
 public class Jeu{
 
 	//Attributs qui seront utilis�s dans la classe 
@@ -35,6 +38,7 @@ public class Jeu{
 	 *
 	 * @param des Collection de dés
 	 * @param joueurs Collection de joueurs
+	 * @param regles Règles du jeu
 	 */
 	public Jeu(CollectionDes des, CollectionJoueurs joueurs, IStrategie regles){
 
@@ -43,7 +47,22 @@ public class Jeu{
 		this.regles = regles;
 		tour = 1;
 	}
-	
+
+	/**
+	 * Appel l'algorithme pour trier les joueurs selon leur score des règles du patron stratégie
+	 */
+	public void calculerLeVainqueur() {
+		joueurs = regles.calculerLeVainqueur(this);
+	}
+
+	/**
+	 * Appel de l'algorithme pour calculer le score du joueur actuel des règles du patron stratégie
+	 * @return Si la main doit être passée au joueur suivant
+	 */
+	public boolean calculerScoreTour() {
+		return regles.calculerScoreTour(this);
+	}
+
 	public void setDes(CollectionDes des){
 		this.des = des;
 	}
@@ -52,18 +71,10 @@ public class Jeu{
 		this.joueurs = joueurs;
 	}
 
-	/**
-	 * Accesseur de la collection De.
-	 * @return des La collectionDes que nous voulons acceder 
-	 */
 	public CollectionDes getDes(){
 		return des;
 	}
 
-	/**
-	 * Accesseur de la collection Joueur.
-	 * @return joueurs La collectionJoueurs que nous voulons acceder 
-	 */
 	public CollectionJoueurs getJoueurs(){
 		return joueurs;
 	}
@@ -75,18 +86,4 @@ public class Jeu{
 	public int getTour(){
 		return tour;
 	}
-
-	public void calculerLeVainqueur() {
-		joueurs = regles.calculerLeVainqueur(this);
-	}
-
-	public boolean calculerScoreTour() {
-		return regles.calculerScoreTour(this);
-	}
-
-	public void setNbTours(int nbTours) {
-		this.nbTours = nbTours;
-	}
-	
-	
 }

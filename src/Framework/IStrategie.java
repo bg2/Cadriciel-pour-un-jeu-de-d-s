@@ -22,18 +22,21 @@ package Framework;
 
 /**
  * Created by Alexandre Trépanier on 2017-03-06.
+ * Interface pour le patron stratégie des règles de jeu
  */
 public interface IStrategie {
 
     /**
      * Méthode pour calculer le vainqueur de la partie
-     * @return 
+     * @param jeu Le jeu de la partie en cours
+     * @return Collection des joueurs triée
      */
     CollectionJoueurs calculerLeVainqueur(Jeu jeu);
 
     /**
      * Méthode pour calculer le score du joueur actuel
-     * @return 
+     * @param jeu Le jeu de la partie en cours
+     * @return Si la main est passée au joueur suivant
      */
     boolean calculerScoreTour(Jeu jeu);
 }
