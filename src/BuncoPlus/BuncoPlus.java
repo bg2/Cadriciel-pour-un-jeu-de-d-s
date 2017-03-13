@@ -15,6 +15,7 @@ public class BuncoPlus extends Jeu{
         super(des, joueurs, regles);
 
         test();
+        test2();
     }
 
     public void test(){
@@ -53,4 +54,10 @@ public class BuncoPlus extends Jeu{
         }
 
     }
+    
+    public void test2(){
+    	
+    	calculerScoreTour();
+    }
+    
 }

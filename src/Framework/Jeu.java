@@ -70,7 +70,7 @@ public class Jeu{
 	}
 
 	public void calculerScoreTour() {
-		regles.calculerScoreTour(nbTours);
+		regles.calculerScoreTour(des,nbTours);
 	}
 
 	public void setNbTours(int nbTours) {

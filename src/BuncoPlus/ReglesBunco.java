@@ -24,13 +24,7 @@ import Framework.*;
 
 public class ReglesBunco implements IStrategie{
 
-	private  static int MAX_JOUEURS = 3;
 	
-	//Variables de la classe ReglesBunco
-	private Joueur joueur1 ; 
-	private Joueur joueur2 ;
-	private  int comparaison; 
-	private De[] des;
 
 	public  CollectionJoueurs calculerLeVainqueur(CollectionJoueurs joueurs) {
 
@@ -66,13 +60,15 @@ public class ReglesBunco implements IStrategie{
 		return joueurs;
     }
 
-    @Override
-    public void calculerScoreTour(int tour) {
-    	int score=0;
+public void calculerScoreTour(CollectionDes des, int tour) {
+    	
+    	
+    	int score=1;
     	boolean changer = true;
+    	Joueur joueur = new Joueur("bitch");
 
 
-		Iterateur  iterateurDe = new IterateurDes(des);
+		Iterateur  iterateurDe = des.createIterateur();
 
 		while(iterateurDe.hasNext()){
 			De de = (De)iterateurDe.next();
@@ -86,7 +82,7 @@ public class ReglesBunco implements IStrategie{
 				score=21;
 			}
 			else if(score==0){
-				iterateurDe = new IterateurDes(des);
+				iterateurDe = des.createIterateur();
 
 				De de1 = (De)iterateurDe.next();
 				De de2 = (De)iterateurDe.next();
@@ -95,9 +91,13 @@ public class ReglesBunco implements IStrategie{
 					score=5;
 				}
 			}
+			
+			System.out.println("score:"+score);
+			
+			joueur.incrementerScore(score);
 
-			joueur1.incrementerScore(score);
-
+			System.out.println("score cumulatif:"+joueur.getScore());
+			
 			if(score==21 || score==0){
 				changer = false;
 			}
@@ -105,5 +105,4 @@ public class ReglesBunco implements IStrategie{
 			changer= true;
 
     }
-
 }

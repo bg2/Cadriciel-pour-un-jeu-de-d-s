@@ -34,5 +34,5 @@ public interface IStrategie {
     /**
      * Méthode pour calculer le score du joueur actuel
      */
-    void calculerScoreTour(int tour);
+    void calculerScoreTour(CollectionDes des, int tour);
 }
