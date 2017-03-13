@@ -61,25 +61,27 @@ public class ReglesBunco implements IStrategie{
 
 public boolean calculerScoreTour(Jeu jeu) {
 
-    	int score=1;
+    	int score = 0;
     	boolean changer = true;
     	CollectionDes des = jeu.getDes();
     	int tour = jeu.getTour();
-    	Joueur joueur = new Joueur("bitch");
+    	Joueur joueur = jeu.getJoueur();
 
 		Iterateur iterateur = des.createIterateur();
 
 		while(iterateur.hasNext()){
 
 			De de = (De)iterateur.next();
-			de.rouler();
 
-			if(de.getFace() == tour)
+			if(de.getFace() == tour) {
 				score++;
+				changer = false;
+			}
 		}
 
-		if(score == 3)
+		if(score == 3){
 			score = 21;
+		}
 		else if(score == 0){
 			iterateur = des.createIterateur();
 
@@ -87,20 +89,13 @@ public boolean calculerScoreTour(Jeu jeu) {
 			De de2 = (De)iterateur.next();
 			De de3 = (De)iterateur.next();
 
-			if((de1.compareTo(de2) == 0) && (de2.compareTo(de3) == 0))
+			if((de1.compareTo(de2) == 0) && (de2.compareTo(de3) == 0)) {
 				score = 5;
+				changer = false;
+			}
 		}
-
-		System.out.println("score: " + score);
 
 		joueur.incrementerScore(score);
-
-		System.out.println("score cumulatif: " + joueur.getScore());
-
-		if(score == 21 || score == 0){
-			changer = false;
-		}
-
 		
 		return changer; 
     }
