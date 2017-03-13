@@ -72,4 +72,10 @@ public class Jeu{
 	public void calculerScoreTour() {
 		regles.calculerScoreTour(nbTours);
 	}
+
+	public void setNbTours(int nbTours) {
+		this.nbTours = nbTours;
+	}
+	
+	
 }

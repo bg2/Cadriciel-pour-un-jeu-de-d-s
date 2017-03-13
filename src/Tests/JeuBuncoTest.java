@@ -22,6 +22,8 @@ public class JeuBuncoTest {
 	private String nomJoueur2 = "Joueur2";
 	private int scoreJoueur1 = 21;
 	private int scoreJoueur2 = 5;
+
+	private int numeroDeTour = 1;
 	private CollectionDes collectionDes;
 	private CollectionJoueurs collectionJoueurs;
 	private Application bunco;
@@ -63,6 +65,34 @@ public class JeuBuncoTest {
 		joueur2.setScore(scoreJoueur2);
 		collectionJoueurs.add(joueur1);
 		collectionJoueurs.add(joueur2);
+
+		bunco.getJeu().setJoueurs(collectionJoueurs);
+
+		bunco.getJeu().calculerLeVainqueur();
+
+		assertTrue(bunco.getJeu().getJoueurs().getJoueurs(0).equals(joueur1));
+
+	}
+
+	@Test
+	public void calculerLeScoreTest() {
+		de1.setFace(5);
+		de2.setFace(1);
+		de3.setFace(6);
+		collectionDes.add(de1);
+		collectionDes.add(de2);
+		collectionDes.add(de3);
+		bunco.getJeu().setDes(collectionDes);
+
+		collectionJoueurs.add(joueur1);
+
+		bunco.getJeu().setJoueurs(collectionJoueurs);
+
+		bunco.getJeu().setNbTours(numeroDeTour);
+
+		bunco.getJeu().calculerScoreTour();
+
+		assertTrue(bunco.getJeu().getJoueurs().getJoueurs(0).getScore() == 12);
 
 	}
 }
