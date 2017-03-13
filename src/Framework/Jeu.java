@@ -78,6 +78,10 @@ public class Jeu{
 	public void setJoueur(Joueur joueur){
 		this.joueur = joueur;
 	}
+	
+	public void setTour(int valeur){
+		this.tour = valeur;
+	}
 
 	public CollectionDes getDes(){
 		return des;

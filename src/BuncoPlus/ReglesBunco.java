@@ -19,20 +19,28 @@ Historique des modifications
 *******************************************************************************/
 package BuncoPlus;
 
-import Framework.*;
+import Framework.CollectionDes;
+import Framework.CollectionJoueurs;
+import Framework.De;
+import Framework.IStrategie;
+import Framework.Iterateur;
+import Framework.Jeu;
+import Framework.Joueur;
 
 /**
- * Classe ayant les règles d'une partie de Bunco (calcule d'un vainqueur, score des joueurs)
+ * Classe ayant les règles d'une partie de Bunco (calcule d'un vainqueur, score
+ * des joueurs)
  */
-public class ReglesBunco implements IStrategie{
+public class ReglesBunco implements IStrategie {
 
 	/**
 	 * Tri la collection de joueurs en ordre décroissant de score
 	 *
-	 * @param jeu Le jeu de la partie en cours
+	 * @param jeu
+	 *            Le jeu de la partie en cours
 	 * @return La collection de joueurs triée
 	 */
-	public  CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
+	public CollectionJoueurs calculerLeVainqueur(Jeu jeu) {
 
 		boolean check;
 		CollectionJoueurs joueurs = jeu.getJoueurs();
@@ -68,8 +76,11 @@ public class ReglesBunco implements IStrategie{
 	}
 
 	/**
-	 * Calcule le score du joueur actuel et si les dés doivent être passés au suivant
-	 * @param jeu Le jeu en cours
+	 * Calcule le score du joueur actuel et si les dés doivent être passés au
+	 * suivant
+	 * 
+	 * @param jeu
+	 *            Le jeu en cours
 	 * @return changer Boolean si le tour est au joueur suivant
 	 */
 	public boolean calculerScoreTour(Jeu jeu) {
