@@ -105,6 +105,7 @@ public class ReglesBunco implements IStrategie {
 
 		if (score == 3) {
 			score = 21;
+			changer = true;
 		} else if (score == 0) {
 			iterateur = des.createIterateur();
 
