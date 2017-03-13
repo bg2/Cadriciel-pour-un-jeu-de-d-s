@@ -82,6 +82,8 @@ public class StrategieBuncoTest {
 
 		jeu.setNbTours(1);
 
+		jeu.setJoueur(joueur1);
+
 		jeu.calculerScoreTour();
 
 		collectionJoueurs = jeu.getJoueurs();

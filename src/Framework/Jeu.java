@@ -75,6 +75,10 @@ public class Jeu{
 		this.nbTours = nbTours;
 	}
 
+	public void setJoueur(Joueur joueur){
+		this.joueur = joueur;
+	}
+
 	public CollectionDes getDes(){
 		return des;
 	}
